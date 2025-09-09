@@ -31,5 +31,10 @@
     "eslint-config-next": "15.5.2",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "debug": "4.4.1",
+    "simple-swizzle": "0.2.2",
+    "is-arrayish": "0.3.2"
   }
 }
