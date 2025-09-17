@@ -1,0 +1,202 @@
+/* Process Steps Section CSS Classes */
+/* Note: This section reuses many classes from capabilities-section.css */
+
+/* Solutions wrapper */
+.solutions-wrap {
+  /* No specific styles found - inherits from parent */
+}
+
+/* Solution cards */
+.solution-card {
+  border-radius: var(--radius--20);
+  background-color: var(--main--white);
+  box-shadow: 0 16px 32px -18px var(--main--shadow-s);
+  flex-flow: column;
+  width: 100%;
+  position: static;
+  overflow: hidden;
+}
+
+/* Solution heading */
+.solution-heading {
+  grid-column-gap: 32px;
+  grid-row-gap: 32px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 24px 28px;
+  display: flex;
+}
+
+/* Solution title */
+.solution-title {
+  grid-column-gap: 32px;
+  grid-row-gap: 32px;
+  white-space: pre-line;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+.solution-left {
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 352px;
+  display: flex;
+}
+
+/* Solution icon */
+.solution-icon {
+  border-radius: var(--radius--rounded);
+  background-color: var(--primary--dark);
+  box-shadow: 0 0 12px 2px rgba(247, 75, 69, 0.1), inset 0 0.75px 0 0 var(--opacity--32);
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+
+/* Solution content */
+.solution-content {
+  background-color: var(--main--transparent);
+  display: block;
+  position: relative;
+}
+
+.solution-wrapper {
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+  flex-flow: column;
+  padding-bottom: 24px;
+  padding-left: 28px;
+  padding-right: 28px;
+  display: flex;
+}
+
+.solution-divider {
+  border-top: 1px dashed var(--neutral--300);
+  opacity: 0.72;
+  width: 100%;
+  height: 1px;
+}
+
+/* Solution image */
+.solution-image-wrap {
+  border-radius: var(--radius--16);
+  min-height: 264px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.solution-image {
+  object-fit: cover;
+  object-position: 0% 0%;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+}
+
+.solution-overlay {
+  background-image: linear-gradient(180deg, black, var(--main--transparent) 25%, var(--main--transparent) 75%, var(--main--black));
+  pointer-events: none;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+}
+
+/* Solution tab menu */
+.solution-tab-menu {
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.solution-feature {
+  grid-column-gap: 4px;
+  grid-row-gap: 4px;
+  background-color: var(--main--transparent);
+  flex-flow: column;
+  flex: 1;
+  padding: 16px 20px;
+  display: flex;
+}
+
+.solution-feature.w--current {
+  background-color: var(--main--transparent);
+}
+
+/* Typography */
+.sub-heading-small {
+  color: var(--neutral--900);
+  letter-spacing: -0.01em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: Space Grotesk, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 991px) {
+  .solution-title {
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .solution-tab-menu {
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    flex-flow: column;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .solution-image {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .solution-heading {
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .solution-left {
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .solution-icon {
+    display: none;
+  }
+
+  .solution-wrapper {
+    padding-bottom: 16px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .solution-feature {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

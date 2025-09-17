@@ -1,0 +1,57 @@
+/* Logo Section CSS Classes */
+
+/* Section wrapper */
+.section-small {
+  padding: 88px 4%;
+  position: relative;
+}
+
+/* Logo master container */
+.logo-master {
+  grid-column-gap: 32px;
+  grid-row-gap: 16px;
+  flex-flow: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1344px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+/* Individual customer logo containers */
+.customer-logo {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  display: flex;
+}
+
+/* Logo wrapper */
+.logo {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 991px) {
+  .logo-master {
+    grid-column-gap: 32px;
+    grid-row-gap: 16px;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+    display: grid;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .logo-master {
+    grid-template-columns: 1fr 1fr;
+  }
+}
