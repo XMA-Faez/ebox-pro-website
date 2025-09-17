@@ -1,53 +1,48 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus } from "lucide-react";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
-import { Badge } from "@/components/ui/Badge";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 
 const faqs = [
   {
     id: 1,
-    question: "How quickly can you start fulfilling our orders?",
-    answer: "Our typical onboarding process takes 1-2 weeks for e-commerce businesses. We start with a comprehensive assessment of your products and requirements, then set up your inventory in our warehouse. Our dedicated onboarding team ensures a smooth transition with real-time integration to your sales channels."
+    question: "Do you support small businesses?",
+    answer: "Yes, we specialize in providing scalable logistics solutions for businesses of all sizes, from small startups to enterprise companies. Our flexible service packages can be customized to meet your specific needs and budget."
   },
   {
     id: 2,
-    question: "Which e-commerce platforms do you integrate with?",
-    answer: "We specialize in Amazon FBA, Shopify, Noon marketplace, WooCommerce, Magento, BigCommerce, and more. Our API-first approach enables seamless connections to virtually any e-commerce platform. We also offer custom integrations for unique business requirements."
+    question: "Do you offer global solutions?",
+    answer: "Absolutely! We provide comprehensive global logistics services with coverage across 50+ countries and strategic partnerships with carriers worldwide. Our network ensures reliable service no matter where your business operates."
   },
   {
     id: 3,
-    question: "How do you maintain inventory accuracy?",
-    answer: "We maintain 99.9% inventory accuracy through real-time tracking, cycle counting, barcode scanning, and automated reconciliation across all your sales channels. Our warehouse management system provides live visibility into stock levels with instant updates."
+    question: "What makes your warehousing solutions different?",
+    answer: "Our warehousing facilities feature state-of-the-art inventory management systems, climate-controlled environments, and 24/7 security monitoring. We provide real-time inventory tracking and flexible storage options."
   },
   {
     id: 4,
-    question: "Do you ship to UAE and Saudi Arabia?",
-    answer: "Yes, we specialize in UAE and KSA markets with local fulfillment centers. We handle all customs documentation, VAT requirements, and compliance for both countries. Our regional expertise includes Arabic labeling and cash-on-delivery options for Noon marketplace."
-  },
-  {
-    id: 5,
-    question: "What are your fulfillment fees?",
-    answer: "Our pricing is transparent with no hidden fees. We charge per-unit picking and packing fees, storage per cubic foot monthly, and shipping at cost plus a small markup. We offer volume discounts for higher volumes. Contact us for a detailed quote based on your specific needs."
-  },
-  {
-    id: 6,
-    question: "How do you handle returns from customers?",
-    answer: "We offer comprehensive returns processing including quality inspection, restocking, and customer communication. Returns can be automatically processed or require approval based on your rules. We integrate with your customer service tools to provide seamless return experiences across all channels."
-  },
-  {
-    id: 7,
-    question: "Are you Amazon FBA compliant?",
-    answer: "Yes, we are fully Amazon FBA compliant with certified prep services. We handle labeling, poly bagging, bubble wrapping, and bundle creation according to Amazon's strict requirements. We can prep and forward your inventory directly to Amazon fulfillment centers."
-  },
-  {
-    id: 8,
-    question: "Can you handle same-day delivery?",
-    answer: "Yes, we offer same-day delivery in Dubai, Abu Dhabi, and Riyadh through our strategically located fulfillment centers. We also provide next-day delivery coverage throughout UAE and KSA with full tracking and customer communication."
+    question: "How do you ensure package safety and security?",
+    answer: "We implement multi-layer security protocols including comprehensive insurance coverage, secure facilities, tracked transport, and professional handling by certified drivers to ensure your packages arrive safely."
   }
 ];
+
+const CornerMark = () => (
+  <div className="absolute top-4 right-4">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14 14L6 14" stroke="var(--color-atlantio-primary)" strokeWidth="1.2" strokeLinecap="round"/>
+      <path d="M1 1L1 9" stroke="var(--color-atlantio-primary)" strokeWidth="1.2" strokeLinecap="round"/>
+      <rect width="2" height="2" rx="1" transform="matrix(-4.37114e-08 1 1 4.37114e-08 0 13)" fill="var(--color-atlantio-primary)"/>
+    </svg>
+  </div>
+);
+
+const PlusIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 19.5C7.85775 19.5 4.5 16.1423 4.5 12C4.5 7.85775 7.85775 4.5 12 4.5C16.1423 4.5 19.5 7.85775 19.5 12C19.5 16.1423 16.1423 19.5 12 19.5ZM11.25 11.25H8.25V12.75H11.25V15.75H12.75V12.75H15.75V11.25H12.75V8.25H11.25V11.25Z" fill="currentColor"/>
+  </svg>
+);
 
 export default function FAQ() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -57,98 +52,76 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-cream/30 to-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, amount: 0.2 }}
-          className="max-w-4xl mx-auto"
-        >
-          {/* Section Header */}
-          <motion.div variants={fadeInUp} className="text-center mb-16">
-            <Badge>
-              FAQ
-            </Badge>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-6">
-              <span className="bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent">
-                Questions?
-              </span>{" "}
-              <span className="bg-gradient-to-r from-gold-rich to-gold-accent bg-clip-text text-transparent">
-                We've Got Answers
-              </span>
-            </h2>
-            <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-              Find answers to common questions about our e-commerce fulfillment services, 
-              platform integrations, and processes.
-            </p>
-          </motion.div>
+    <section className="py-16 lg:py-28">
+      <div className="w-full max-w-5xl mx-auto px-6">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 relative">
+          {/* Left side - FAQ */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col gap-8 w-full"
+          >
+            {/* Header */}
+            <div className="flex flex-col gap-6">
+              <div className="border border-text rounded-full px-2 py-0.5 text-sm font-medium text-text inline-block w-fit">
+                Logistics Optimization
+              </div>
+              <h3 className="text-3xl lg:text-4xl font-medium font-space-grotesk leading-tight tracking-tighter text-text">
+                Some of the most frequently asked questions
+              </h3>
+            </div>
 
-          {/* FAQ Items */}
-          <motion.div variants={staggerContainer} className="space-y-4">
-            {faqs.map((faq) => (
-              <motion.div
-                key={faq.id}
-                variants={fadeInUp}
-                className="bg-white rounded-2xl border border-gold-light/50 hover:border-gold-light transition-colors duration-300 overflow-hidden"
-              >
-                <button
-                  onClick={() => toggleFaq(faq.id)}
-                  className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-gold-light/20 transition-colors duration-200"
+            {/* FAQ Items */}
+            <div className="flex flex-col gap-4">
+              {faqs.map((faq, index) => (
+                <motion.div
+                  key={faq.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  className="border border-border rounded-xl flex-col w-full overflow-hidden"
                 >
-                  <span className="font-semibold text-text-primary pr-8">
-                    {faq.question}
-                  </span>
-                  <motion.div
-                    animate={{ rotate: openFaq === faq.id ? 45 : 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="flex-shrink-0"
+                  <button
+                    onClick={() => toggleFaq(faq.id)}
+                    className="w-full p-3 lg:p-4 text-left flex items-center justify-between hover:bg-surface-hover transition-colors group"
                   >
-                    {openFaq === faq.id ? (
-                      <Minus className="w-5 h-5 text-gold-rich" />
-                    ) : (
-                      <Plus className="w-5 h-5 text-gold-rich" />
-                    )}
-                  </motion.div>
-                </button>
-                
-                <AnimatePresence>
+                    <span className="text-text text-base font-medium leading-6 pr-4">
+                      {faq.question}
+                    </span>
+                    <div className="flex-shrink-0 w-6 h-6 text-atlantio-dark">
+                      <PlusIcon />
+                    </div>
+                  </button>
+
                   {openFaq === faq.id && (
                     <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="border-t border-gold-light/50"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="bg-transparent"
                     >
-                      <div className="px-6 py-6">
-                        <p className="text-text-secondary leading-relaxed">
+                      <div className="mt-1 pb-3 lg:pb-4 px-4 lg:px-4">
+                        <p className="text-text-secondary text-sm leading-relaxed">
                           {faq.answer}
                         </p>
                       </div>
                     </motion.div>
                   )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </motion.div>
+                </motion.div>
+              ))}
+            </div>
 
-          {/* Bottom CTA */}
-          <motion.div variants={fadeInUp} className="text-center mt-12">
-            <p className="text-text-secondary mb-6">
-              Still have questions? Our e-commerce fulfillment experts are here to help.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-gold-rich to-gold-primary text-white font-semibold rounded-full hover:from-gold-dark hover:to-gold-rich hover:shadow-gold-md hover:-translate-y-0.5 active:scale-95 transition-all duration-300">
-                Schedule a Consultation
-              </button>
-              <button className="px-8 py-4 font-semibold text-gold-rich border-2 border-gold-rich rounded-full hover:bg-gold-rich hover:text-white transition-colors duration-300">
-                View All FAQs
-              </button>
+            {/* Contact CTA */}
+            <div className="text-sm leading-6 text-text">
+              Still have questions?{" "}
+              <Link href="/contact" className="text-text underline hover:text-primary transition-colors">
+                Contact Us
+              </Link>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

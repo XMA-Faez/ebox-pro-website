@@ -1,198 +1,131 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Package, ShoppingCart, Truck, BarChart3, Users, Zap } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { fadeInDown } from "@/lib/animations";
-import { Button } from "@/components/ui/Button";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Logo from "@/public/Ebox - Final Logo/ebox - final logo -11.svg";
 
 const navigation = [
-  {
-    name: "Services",
-    href: "#services",
-    hasDropdown: true,
-    dropdownItems: [
-      { name: "Amazon FBA Prep", href: "#amazon-fba", icon: Package },
-      { name: "Shopify Fulfillment", href: "#shopify", icon: ShoppingCart },
-      { name: "Noon Integration", href: "#noon", icon: Truck },
-      { name: "Multi-Channel", href: "#multi-channel", icon: BarChart3 },
-    ],
-  },
-  { name: "About", href: "#about" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/service" },
+  { name: "About", href: "/about" },
 ];
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
-    <motion.header
-      initial="initial"
-      animate="animate"
-      variants={fadeInDown}
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg"
-          : "bg-transparent"
-      )}
-    >
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex items-center cursor-pointer hover:scale-105 transition-transform duration-200">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-gold-rich to-gold-primary blur-lg opacity-60" />
-              <div className="relative bg-gradient-to-r from-gold-rich to-gold-primary bg-clip-text">
-                <span className="text-2xl md:text-3xl font-bold text-transparent">
-                  Ebox Pro
-                </span>
+    <>
+      <header className="absolute top-0 left-0 right-0 z-30 bg-transparent">
+        <div className="bg-transparent flex justify-center items-center py-8 px-4">
+          <div className="flex justify-center items-center w-full max-w-[1192px] gap-8">
+            {/* Navigation Left */}
+            <div className="flex-1 flex justify-start items-center">
+              <nav className="hidden md:flex items-center gap-2">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="rounded-full bg-transparent text-white px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px]"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            {/* Logo Center */}
+            <Link href="/" className="flex-shrink-0">
+              <Image
+                src={Logo}
+                alt="Ebox Pro"
+                width={120}
+                height={40}
+                className="h-20 w-auto"
+              />
+            </Link>
+
+            {/* Navigation Right */}
+            <div className="flex-1 flex justify-end items-center">
+              <div className="hidden md:flex items-center gap-2">
+                <Link
+                  href="/pricing"
+                  className="rounded-full bg-transparent text-white px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px]"
+                >
+                  Pricing & Plans
+                </Link>
+                <Link
+                  href="/contact"
+                  className="rounded-full bg-primary text-white text-center px-4 py-3 text-sm font-medium leading-6 no-underline flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover"
+                >
+                  Contact Us
+                </Link>
               </div>
+
+              {/* Mobile menu button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden rounded-full bg-transparent transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px] flex justify-center items-center p-2"
+              >
+                <div className="flex flex-col justify-center items-center w-6 h-6 gap-1 p-0">
+                  {isMobileMenuOpen ? (
+                    <>
+                      <div className="w-4 h-0.5 bg-white rounded-full transform rotate-45 translate-y-0.5"></div>
+                      <div className="w-4 h-0.5 bg-white rounded-full transform -rotate-45 -translate-y-0.5"></div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="w-4 h-0.5 bg-white rounded-full"></div>
+                      <div className="w-4 h-0.5 bg-white rounded-full"></div>
+                      <div className="w-4 h-0.5 bg-white rounded-full"></div>
+                    </>
+                  )}
+                </div>
+              </button>
             </div>
           </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <div
-                key={item.name}
-                className="relative"
-                onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <a
-                  href={item.href}
-                  className={cn(
-                    "flex items-center gap-1 text-base font-medium transition-all duration-200 hover:-translate-y-0.5",
-                    isScrolled ? "text-text-secondary hover:text-gold-rich" : "text-black hover:text-gold-rich"
-                  )}
-                >
-                  {item.name}
-                  {item.hasDropdown && (
-                    <ChevronDown className="w-4 h-4" />
-                  )}
-                </a>
-
-                {/* Dropdown Menu */}
-                <AnimatePresence>
-                  {item.hasDropdown && activeDropdown === item.name && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl overflow-hidden"
-                    >
-                      {item.dropdownItems?.map((dropdownItem) => {
-                        const Icon = dropdownItem.icon;
-                        return (
-                          <a
-                            key={dropdownItem.name}
-                            href={dropdownItem.href}
-                            className="flex items-center gap-3 px-4 py-3 text-text-secondary hover:bg-gold-light hover:text-gold-rich hover:translate-x-1 transition-all duration-200"
-                          >
-                            <Icon className="w-5 h-5" />
-                            <span className="font-medium">{dropdownItem.name}</span>
-                          </a>
-                        );
-                      })}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <div className="hidden lg:block">
-            <Button variant="primary" size="md">
-              Get Started
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className={cn(
-              "lg:hidden p-2 rounded-lg transition-all duration-200 active:scale-95",
-              isScrolled ? "text-text-secondary" : "text-black"
-            )}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden overflow-hidden"
-            >
-              <div className="py-4 space-y-2">
-                {navigation.map((item) => (
-                  <div key={item.name}>
-                    <a
-                      href={item.href}
-                      className={cn(
-                        "block px-4 py-3 text-base font-medium rounded-lg transition-colors",
-                        isScrolled
-                          ? "text-text-secondary hover:bg-gold-light hover:text-gold-rich"
-                          : "text-black hover:bg-gold-light hover:text-gold-rich"
-                      )}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </a>
-                    {item.hasDropdown && (
-                      <div className="ml-4 mt-2 space-y-1">
-                        {item.dropdownItems?.map((dropdownItem) => {
-                          const Icon = dropdownItem.icon;
-                          return (
-                            <a
-                              key={dropdownItem.name}
-                              href={dropdownItem.href}
-                              className={cn(
-                                "flex items-center gap-2 px-4 py-2 text-sm rounded-lg transition-colors",
-                                isScrolled
-                                  ? "text-text-muted hover:bg-gold-light hover:text-gold-rich"
-                                  : "text-black/80 hover:bg-gold-light hover:text-gold-rich"
-                              )}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                              <Icon className="w-4 h-4" />
-                              {dropdownItem.name}
-                            </a>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                ))}
-                <Button variant="primary" size="lg" className="w-full mt-4">
-                  Get Started
-                </Button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
-    </motion.header>
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden rounded-b-3xl bg-white/[0.1] backdrop-blur-[10px] flex flex-col pb-16 overflow-hidden">
+            <div className="flex flex-col">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-white px-4 py-6 text-2xl leading-10 border-b border-white/[0.08] transition-colors hover:border-white/[0.32] hover:bg-transparent"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+
+            <div className="flex flex-col items-stretch justify-center mt-32 px-4 gap-2">
+              <Link
+                href="/pricing"
+                className="rounded-full bg-transparent text-white px-4 py-2 text-sm leading-6 transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px]"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Pricing & Plans
+              </Link>
+              <Link
+                href="/contact"
+                className="rounded-full bg-primary text-white text-center px-4 py-3 text-sm font-medium leading-6 no-underline w-full transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* Navigation line */}
+      <div className="absolute bottom-0 left-0 right-0 flex justify-center items-center px-4">
+        <div className="bg-white/[0.08] w-full max-w-[1192px] h-px"></div>
+      </div>
+    </>
   );
 }

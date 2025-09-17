@@ -1,268 +1,245 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { 
-  ShoppingCart,
-  Package, 
-  Truck, 
-  BarChart3,
-  CheckCircle,
-  ArrowRight,
-  Boxes,
-  RotateCcw,
-  Zap,
-  Users
-} from "lucide-react";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 const services = [
   {
-    id: "amazon-fba",
-    title: "Amazon FBA Prep",
-    description: "Complete FBA preparation and shipment services for Amazon sellers",
-    icon: Package,
-    color: "from-gold-rich to-gold-primary",
-    features: [
-      "FBA-compliant labeling",
-      "Poly bagging & bubble wrap",
-      "Bundle creation & kitting",
-      "Direct Amazon forwarding",
-    ],
-    stats: { processed: "100K+ units", compliance: "100%" },
+    title: "Product Protection",
+    description: "Comprehensive security and insurance coverage for all your shipments, ensuring complete protection from origin to destination.",
+    features: ["Product protection and insurance", "Deliveries handled by professionals"],
+    icon: (
+      <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="m16.05 8.08 1.154 7.5a1.667 1.667 0 0 1-1.647 1.92H4.442a1.667 1.667 0 0 1-1.647-1.92l1.154-7.5a1.667 1.667 0 0 1 1.647-1.413h8.807c.823 0 1.522.6 1.647 1.413ZM11.667 4.167a1.667 1.667 0 1 0-3.333 0"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+    mark: "top-right",
   },
   {
-    id: "shopify",
-    title: "Shopify Fulfillment",
-    description: "Seamless integration with Shopify stores for automated fulfillment",
-    icon: ShoppingCart,
-    color: "from-gold-primary to-gold-accent",
-    features: [
-      "One-click app integration",
-      "Branded packaging options",
-      "Real-time inventory sync",
-      "Subscription box support",
-    ],
-    stats: { stores: "500+ connected", speed: "2hr processing" },
+    title: "Fast Deliveries",
+    description: "Rapid and reliable delivery services with real-time tracking and guaranteed timeframes for urgent shipments.",
+    features: ["Real-time delivery tracking", "Guaranteed delivery timeframes"],
+    icon: (
+      <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M6.667 15.833a1.667 1.667 0 1 0 0-3.333 1.667 1.667 0 0 0 0 3.333ZM15 15.833a1.667 1.667 0 1 0 0-3.333 1.667 1.667 0 0 0 0 3.333Z"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          strokeMiterlimit="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M8.375 14.167H12.5V5.5A.5.5 0 0 0 12 5H.833M4.708 14.167H3a.5.5 0 0 1-.5-.5V9.583"
+          stroke="white"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+        />
+        <path
+          d="M1.667 7.5H5"
+          stroke="white"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M12.5 7.5h4.675a.5.5 0 0 1 .457.297l1.492 3.356a.5.5 0 0 1 .043.203v2.31a.5.5 0 0 1-.5.5h-1.584M12.5 14.167h.833"
+          stroke="white"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
   },
   {
-    id: "noon",
-    title: "Noon Integration", 
-    description: "Specialized fulfillment for Noon marketplace sellers in UAE/KSA",
-    icon: Truck,
-    color: "from-gold-accent to-gold-light",
-    features: [
-      "Noon FBN preparation",
-      "Arabic label printing",
-      "Cash-on-delivery handling",
-      "Same-day delivery setup",
-    ],
-    stats: { coverage: "UAE + KSA", delivery: "Same day" },
-  },
-  {
-    id: "multi-channel",
-    title: "Multi-Channel Hub",
-    description: "Centralized fulfillment across all your sales channels",
-    icon: BarChart3,
-    color: "from-gold-light to-gold-primary",
-    features: [
-      "Unified inventory dashboard",
-      "Cross-platform sync",
-      "Overflow prevention",
-      "Analytics & reporting",
-    ],
-    stats: { channels: "10+ platforms", accuracy: "99.9%" },
+    title: "Customer Service",
+    description: "Dedicated support team providing exceptional service and maintaining the highest client satisfaction ratings in the industry.",
+    features: ["Priority customer service", "Exceptional client satisfaction ratings"],
+    icon: (
+      <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M7.5 9.167a3.333 3.333 0 1 0 0-6.667 3.333 3.333 0 0 0 0 6.667Z"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M1.667 15a5.833 5.833 0 0 1 9.442-4.583M17.804 13.922l.247 1.667A1.667 1.667 0 0 1 16.4 17.5H13.6a1.667 1.667 0 0 1-1.649-1.91l.247-1.668a1.667 1.667 0 0 1 1.649-1.422h2.309c.826 0 1.527.605 1.649 1.422ZM14.166 10.833h1.667"
+          stroke="white"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+    mark: "bottom-right",
   },
 ];
 
-const additionalFeatures = [
-  { icon: Boxes, text: "Custom Packaging" },
-  { icon: RotateCcw, text: "Returns Processing" },
-  { icon: Zap, text: "Same-Day Processing" },
-  { icon: Users, text: "Dedicated Support" },
-];
+const CheckIcon = () => (
+  <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#b)" clipPath="url(#a)">
+      <path
+        d="m7.2 11.394 5.333-5.333-1.066-1.067L7.2 9.261 5.067 7.127 4 8.194l3.2 3.2Z"
+        fill="#fff"
+      />
+    </g>
+    <defs>
+      <clipPath id="a">
+        <path fill="currentColor" d="M0 0h16v16H0z" />
+      </clipPath>
+      <filter
+        id="b"
+        x="-6.559"
+        y="-5.565"
+        width="29.652"
+        height="27.519"
+        filterUnits="userSpaceOnUse"
+        colorInterpolationFilters="sRGB"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feColorMatrix
+          in="SourceAlpha"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          result="hardAlpha"
+        />
+        <feMorphology
+          radius="1.508"
+          operator="dilate"
+          in="SourceAlpha"
+          result="effect1_dropShadow_4017_133"
+        />
+        <feOffset />
+        <feGaussianBlur stdDeviation="4.525" />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix values="0 0 0 0 0.968627 0 0 0 0 0.294118 0 0 0 0 0.270588 0 0 0 0.12 0" />
+        <feBlend
+          in2="BackgroundImageFix"
+          result="effect1_dropShadow_4017_133"
+        />
+        <feBlend
+          in="SourceGraphic"
+          in2="effect1_dropShadow_4017_133"
+          result="shape"
+        />
+      </filter>
+    </defs>
+  </svg>
+);
 
-export default function Services() {
-  const [selectedService, setSelectedService] = useState(services[0].id);
-  const activeService = services.find(s => s.id === selectedService)!;
+const CornerMark = ({ position }: { position: "top-right" | "bottom-right" }) => {
+  if (position === "top-right") {
+    return (
+      <div className="absolute -bottom-4 -left-4">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 14L14 6" stroke="var(--color-atlantio-primary)" strokeWidth="1.2" strokeLinecap="round"/>
+          <path d="M1 1L9 1" stroke="var(--color-atlantio-primary)" strokeWidth="1.2" strokeLinecap="round"/>
+          <rect x="13" width="2" height="2" rx="1" fill="var(--color-atlantio-primary)"/>
+        </svg>
+      </div>
+    );
+  }
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-white to-cream/50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, amount: 0.2 }}
-          className="max-w-6xl mx-auto"
-        >
-          {/* Section Header */}
-          <motion.div variants={fadeInUp} className="text-center mb-16">
-            <Badge>
-              Our Services
-            </Badge>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-6">
-              <span className="bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent">
-                Scale Without
-              </span>{" "}
-              <span className="bg-gradient-to-r from-gold-rich to-gold-accent bg-clip-text text-transparent">
-                The Hassle
-              </span>
-            </h2>
-            <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-              From Amazon FBA to Shopify stores, we handle every step of your 
-              e-commerce fulfillment with speed and precision.
-            </p>
-          </motion.div>
+    <div className="absolute -bottom-4 -right-4">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 14L0.999999 6" stroke="var(--color-atlantio-primary)" strokeWidth="1.2" strokeLinecap="round"/>
+        <path d="M14 1L6 1" stroke="var(--color-atlantio-primary)" strokeWidth="1.2" strokeLinecap="round"/>
+        <rect width="2" height="2" rx="1" transform="matrix(-1 0 0 1 2 0)" fill="var(--color-atlantio-primary)"/>
+      </svg>
+    </div>
+  );
+};
 
-          {/* Service Tabs */}
-          <motion.div 
-            variants={fadeInUp}
-            className="flex flex-wrap justify-center gap-4 mb-12"
-          >
-            {services.map((service) => {
-              const Icon = service.icon;
-              return (
-                <button
-                  key={service.id}
-                  onClick={() => setSelectedService(service.id)}
-                  className={cn(
-                    "flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300",
-                    selectedService === service.id
-                      ? "bg-gradient-to-r from-gold-rich to-gold-primary text-white shadow-gold-md scale-105"
-                      : "bg-white text-text-secondary hover:bg-gold-light border border-neutral-200"
-                  )}
-                >
-                  <Icon className="w-5 h-5" />
-                  {service.title}
-                </button>
-              );
-            })}
-          </motion.div>
-
-          {/* Active Service Detail */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={selectedService}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="grid md:grid-cols-2 gap-8 mb-16"
-            >
-              {/* Left: Service Info */}
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-text-primary mb-3">
-                    {activeService.title}
-                  </h3>
-                  <p className="text-text-secondary">
-                    {activeService.description}
-                  </p>
-                </div>
-
-                <div className="space-y-3">
-                  {activeService.features.map((feature, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="flex items-center gap-3"
-                    >
-                      <CheckCircle className="w-5 h-5 text-gold-rich flex-shrink-0" />
-                      <span className="text-text-secondary">{feature}</span>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <div className="flex gap-6 pt-4">
-                  {Object.entries(activeService.stats).map(([key, value]) => (
-                    <div key={key}>
-                      <div className="text-2xl font-bold bg-gradient-to-r from-gold-rich to-gold-primary bg-clip-text text-transparent">
-                        {value}
-                      </div>
-                      <div className="text-sm text-text-muted capitalize">
-                        {key}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <Button variant="primary" size="md">
-                  Learn More <ArrowRight className="w-5 h-5" />
-                </Button>
-              </div>
-
-              {/* Right: Visual Card */}
-              <div
-                className="relative h-[400px] rounded-2xl overflow-hidden group hover:scale-105 transition-transform duration-300"
-              >
-                <div className={cn(
-                  "absolute inset-0 bg-gradient-to-br opacity-90",
-                  `${activeService.color}`
-                )} />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.div
-                    animate={{
-                      rotate: [0, 360],
-                    }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                  >
-                    {React.createElement(activeService.icon, {
-                      className: "w-32 h-32 text-white/20"
-                    })}
-                  </motion.div>
-                </div>
-                <div className="relative h-full flex flex-col justify-end p-8">
-                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-                    <h4 className="text-white font-semibold mb-2">Quick Stats</h4>
-                    <div className="grid grid-cols-2 gap-4">
-                      {Object.entries(activeService.stats).map(([key, value]) => (
-                        <div key={key}>
-                          <div className="text-white/80 text-sm capitalize">{key}</div>
-                          <div className="text-white text-xl font-bold">{value}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Additional Features */}
+export default function Services() {
+  return (
+    <section className="relative">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="w-full max-w-7xl mx-auto px-4 rounded-3xl bg-background-subtle flex flex-col relative overflow-hidden"
+      >
+        <div className="w-full max-w-5xl mx-auto py-16 lg:py-28 px-6 border-l border-r border-dashed border-border">
           <motion.div
-            variants={staggerContainer}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16 w-full max-w-xl mx-auto flex flex-col gap-4"
           >
-            {additionalFeatures.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
+            <div className="border border-text rounded-full px-2 py-0.5 text-sm font-medium text-text inline-block w-fit mx-auto">
+              Our Services
+            </div>
+            <h3 className="text-4xl lg:text-5xl font-medium font-space-grotesk leading-tight tracking-tighter text-text">
+              Complete Freight and Warehouse Solutions
+            </h3>
+            <div className="w-full max-w-md mx-auto">
+              <p className="text-lg leading-6 text-text mb-0">
+                Comprehensive logistics solutions designed to streamline your supply chain and exceed your delivery expectations.
+              </p>
+            </div>
+          </motion.div>
+
+          <div className="flex flex-col gap-14">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {services.map((service, index) => (
                 <motion.div
                   key={index}
-                  variants={fadeInUp}
-                  className="text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  className="relative rounded-2xl bg-surface p-7 flex flex-col gap-6 shadow-lg"
                 >
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gold-light rounded-full mb-3">
-                    <Icon className="w-8 h-8 text-gold-rich" />
+                  {service.mark && <CornerMark position={service.mark as "top-right" | "bottom-right"} />}
+
+                  {/* Icon with negative margin */}
+                  <div className="bg-ebox-primary rounded-full text-white px-3 py-1.5 w-fit shadow-ebox-button -mt-11">
+                    {service.icon}
                   </div>
-                  <p className="text-text-secondary font-medium">{feature.text}</p>
+
+                  <div className="flex flex-col gap-2">
+                    <h3 className="text-lg font-medium text-text">{service.title}</h3>
+                    <p className="text-sm leading-relaxed text-text-secondary">{service.description}</p>
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    {service.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center gap-2">
+                        <div className="rounded-full bg-ebox-primary flex-none w-4 h-4 flex items-center justify-center text-atlantio-primary">
+                          <CheckIcon />
+                        </div>
+                        <span className="text-sm leading-relaxed text-text">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
                 </motion.div>
-              );
-            })}
-          </motion.div>
-        </motion.div>
-      </div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-center"
+            >
+              <Link
+                href="/contact"
+                className="text-xs font-medium leading-5 text-text hover:text-primary transition-colors group no-underline"
+              >
+                Get a Quote for Your Business
+                <span className="text-primary ml-1 group-hover:translate-x-1 transition-transform inline-block">→</span>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 }
-
-import React from 'react';
