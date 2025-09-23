@@ -4,8 +4,25 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function ContactForm() {
-  const [formData, setFormData] = useState({
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  interested: string;
+}
+
+interface ContactFormProps {
+  className?: string;
+}
+
+interface StatItem {
+  value: string;
+  label: string;
+}
+
+export default function ContactForm({ className }: ContactFormProps = {}) {
+  const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
     email: "",
@@ -35,7 +52,7 @@ export default function ContactForm() {
     });
   };
 
-  const stats = [
+  const stats: StatItem[] = [
     { value: "32K+", label: "Satisfied Customers" },
     { value: "18+", label: "Years Experience" },
     { value: "24", label: "Trusted Partners" },
@@ -51,7 +68,7 @@ export default function ContactForm() {
         transition={{ duration: 0.8 }}
         className="rounded-3xl bg-neutral-900 text-white flex flex-col justify-center w-full max-w-[1424px] mx-auto py-28 px-[4%] relative overflow-hidden"
       >
-        <div className="container-small">
+        <div className="container-small z-10">
           {/* Shipping Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -223,14 +240,14 @@ export default function ContactForm() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="absolute top-0 left-[58%] h-[105%] min-h-[856px] z-0 pointer-events-none"
+          className="absolute top-0 -right-64 h-[105%] min-h-[856px] z-0 pointer-events-none "
         >
           <Image
             src="/graphics/contact-form-bg.png"
             alt="Contact Form Background"
             width={1756}
             height={856}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-45"
           />
         </motion.div>
       </motion.div>
@@ -241,7 +258,7 @@ export default function ContactForm() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-4 gap-[22px] rounded-2xl bg-white w-full max-w-[988px] -mt-[76px] mx-auto py-8 px-10 relative shadow-ebox-card"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-[22px] rounded-2xl bg-white w-full max-w-[988px] -mt-[76px] mx-auto py-6 sm:py-8 px-6 sm:px-10 relative shadow-ebox-card"
         >
           {stats.map((stat, index) => (
             <motion.div

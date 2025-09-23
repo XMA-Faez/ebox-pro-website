@@ -129,7 +129,7 @@ export default function Footer() {
       <div className="rounded-3xl bg-neutral-900 text-white flex flex-col justify-center w-full max-w-[1424px] mx-auto pt-[245px] pb-10 px-[4%] relative overflow-hidden">
         <div className="relative z-10">
           {/* Footer Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-12">
             {/* Main Column */}
             <div className="flex flex-col gap-6">
               <Link href="/" className="inline-block">

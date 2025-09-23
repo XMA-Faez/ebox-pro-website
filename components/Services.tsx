@@ -2,8 +2,21 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { ReactNode } from "react";
 
-const services = [
+interface ServiceItem {
+  title: string;
+  description: string;
+  features: string[];
+  icon: ReactNode;
+  mark: "top-right" | "bottom-right";
+}
+
+interface ServicesProps {
+  className?: string;
+}
+
+const services: ServiceItem[] = [
   {
     title: "Product Protection",
     description: "Comprehensive security and insurance coverage for all your shipments, ensuring complete protection from origin to destination.",
@@ -56,6 +69,7 @@ const services = [
         />
       </svg>
     ),
+    mark: "top-right",
   },
   {
     title: "Customer Service",
@@ -139,9 +153,9 @@ const CornerMark = ({ position }: { position: "top-right" | "bottom-right" }) =>
     return (
       <div className="absolute -bottom-4 -left-4">
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M14 14L14 6" stroke="var(--color-atlantio-primary)" strokeWidth="1.2" strokeLinecap="round"/>
-          <path d="M1 1L9 1" stroke="var(--color-atlantio-primary)" strokeWidth="1.2" strokeLinecap="round"/>
-          <rect x="13" width="2" height="2" rx="1" fill="var(--color-atlantio-primary)"/>
+          <path d="M14 14L14 6" stroke="var(--color-primary)" strokeWidth="1.2" strokeLinecap="round"/>
+          <path d="M1 1L9 1" stroke="var(--color-primary)" strokeWidth="1.2" strokeLinecap="round"/>
+          <rect x="13" width="2" height="2" rx="1" fill="var(--color-primary)"/>
         </svg>
       </div>
     );
@@ -150,22 +164,22 @@ const CornerMark = ({ position }: { position: "top-right" | "bottom-right" }) =>
   return (
     <div className="absolute -bottom-4 -right-4">
       <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 14L0.999999 6" stroke="var(--color-atlantio-primary)" strokeWidth="1.2" strokeLinecap="round"/>
-        <path d="M14 1L6 1" stroke="var(--color-atlantio-primary)" strokeWidth="1.2" strokeLinecap="round"/>
-        <rect width="2" height="2" rx="1" transform="matrix(-1 0 0 1 2 0)" fill="var(--color-atlantio-primary)"/>
+        <path d="M1 14L0.999999 6" stroke="var(--color-primary)" strokeWidth="1.2" strokeLinecap="round"/>
+        <path d="M14 1L6 1" stroke="var(--color-primary)" strokeWidth="1.2" strokeLinecap="round"/>
+        <rect width="2" height="2" rx="1" transform="matrix(-1 0 0 1 2 0)" fill="var(--color-primary)"/>
       </svg>
     </div>
   );
 };
 
-export default function Services() {
+export default function Services({ className }: ServicesProps = {}) {
   return (
     <section className="relative">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="w-full max-w-7xl mx-auto px-4 rounded-3xl bg-background-subtle flex flex-col relative overflow-hidden"
+        className="w-full max-w-7xl mx-auto lg:px-4 rounded-3xl bg-background-subtle flex flex-col relative overflow-hidden"
       >
         <div className="w-full max-w-5xl mx-auto py-16 lg:py-28 px-6 border-l border-r border-dashed border-border">
           <motion.div
@@ -188,7 +202,7 @@ export default function Services() {
           </motion.div>
 
           <div className="flex flex-col gap-14">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-3">
               {services.map((service, index) => (
                 <motion.div
                   key={index}
@@ -200,7 +214,7 @@ export default function Services() {
                   {service.mark && <CornerMark position={service.mark as "top-right" | "bottom-right"} />}
 
                   {/* Icon with negative margin */}
-                  <div className="bg-ebox-primary rounded-full text-white px-3 py-1.5 w-fit shadow-ebox-button -mt-11">
+                  <div className="bg-primary rounded-full text-white px-3 py-1.5 w-fit shadow-ebox-button -mt-11">
                     {service.icon}
                   </div>
 
@@ -212,7 +226,7 @@ export default function Services() {
                   <div className="flex flex-col gap-2">
                     {service.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center gap-2">
-                        <div className="rounded-full bg-ebox-primary flex-none w-4 h-4 flex items-center justify-center text-atlantio-primary">
+                        <div className="rounded-full bg-primary flex-none w-4 h-4 flex items-center justify-center text-primary">
                           <CheckIcon />
                         </div>
                         <span className="text-sm leading-relaxed text-text">{feature}</span>

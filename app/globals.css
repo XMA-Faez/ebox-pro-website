@@ -19,18 +19,18 @@
   --color-navy-900: oklch(0.259 0.078 252.26);
   --color-navy-950: oklch(0.222 0.067 252.57);
 
-  /* Custom Sage Color Palette */
-  --color-sage-50: oklch(0.959 0.019 29.62);
-  --color-sage-100: oklch(0.927 0.036 32.83);
-  --color-sage-200: oklch(0.843 0.082 34.74);
-  --color-sage-300: oklch(0.772 0.132 39.15);
-  --color-sage-400: oklch(0.692 0.183 45.64);
-  --color-sage-500: oklch(0.601 0.159 45.86);
-  --color-sage-600: oklch(0.513 0.135 45.83);
-  --color-sage-700: oklch(0.415 0.109 45.66);
-  --color-sage-800: oklch(0.327 0.086 45.86);
-  --color-sage-900: oklch(0.231 0.06 46.22);
-  --color-sage-950: oklch(0.18 0.048 44.71);
+  /* Custom carrot Color Palette */
+  --color-carrot-50: oklch(0.959 0.019 29.62);
+  --color-carrot-100: oklch(0.927 0.036 32.83);
+  --color-carrot-200: oklch(0.843 0.082 34.74);
+  --color-carrot-300: oklch(0.772 0.132 39.15);
+  --color-carrot-400: oklch(0.692 0.183 45.64);
+  --color-carrot-500: oklch(0.601 0.159 45.86);
+  --color-carrot-600: oklch(0.513 0.135 45.83);
+  --color-carrot-700: oklch(0.415 0.109 45.66);
+  --color-carrot-800: oklch(0.327 0.086 45.86);
+  --color-carrot-900: oklch(0.231 0.06 46.22);
+  --color-carrot-950: oklch(0.18 0.048 44.71);
 
   /* Base Color Palette - gray for sophisticated neutrals */
   --color-base-50: var(--color-gray-50);
@@ -45,18 +45,18 @@
   --color-base-900: var(--color-gray-900);
   --color-base-950: var(--color-gray-950);
 
-  /* Primary Color Palette - Sage for natural professionalism */
-  --color-primary-50: var(--color-sage-50);
-  --color-primary-100: var(--color-sage-100);
-  --color-primary-200: var(--color-sage-200);
-  --color-primary-300: var(--color-sage-300);
-  --color-primary-400: var(--color-sage-400);
-  --color-primary-500: var(--color-sage-500);
-  --color-primary-600: var(--color-sage-600);
-  --color-primary-700: var(--color-sage-700);
-  --color-primary-800: var(--color-sage-800);
-  --color-primary-900: var(--color-sage-900);
-  --color-primary-950: var(--color-sage-950);
+  /* Primary Color Palette - carrot for natural professionalism */
+  --color-primary-50: var(--color-carrot-50);
+  --color-primary-100: var(--color-carrot-100);
+  --color-primary-200: var(--color-carrot-200);
+  --color-primary-300: var(--color-carrot-300);
+  --color-primary-400: var(--color-carrot-400);
+  --color-primary-500: var(--color-carrot-500);
+  --color-primary-600: var(--color-carrot-600);
+  --color-primary-700: var(--color-carrot-700);
+  --color-primary-800: var(--color-carrot-800);
+  --color-primary-900: var(--color-carrot-900);
+  --color-primary-950: var(--color-carrot-950);
 
   /* Accent Color Palette - Navy for warmth and energy */
   --color-accent-50: var(--color-navy-50);
@@ -118,9 +118,7 @@
   --color-danger-subtle: var(--color-red-50);
   --color-danger-text: var(--color-red-600);
 
-  /* Ebox Pro Brand Colors */
-  --color-ebox-primary: #F74B45;
-  --color-ebox-dark: #070b0f;
+  /* Legacy brand colors - use semantic tokens instead */
 
   /* Hero Typography */
   --text-hero: 4.5rem;
@@ -144,9 +142,10 @@
 
   /* Shadows */
   --shadow-ebox-card: 0 16px 32px -18px rgba(0, 0, 0, 0.1);
-  --shadow-ebox-button: inset 0 0.75px 0 0 rgba(255, 255, 255, 0.32), 0 8px 16px 0 rgba(247, 75, 69, 0.16);
-  --shadow-ebox-nav: 0 2px 2px 0 rgba(0, 0, 0, 0.1), inset 0 0.75px 0 0 rgba(255, 255, 255, 0.12);
+  --shadow-ebox-button:
+    inset 0 0.75px 0 0 rgba(255, 255, 255, 0.32),
+    0 8px 16px 0 rgba(247, 75, 69, 0.16);
+  --shadow-ebox-nav:
+    0 2px 2px 0 rgba(0, 0, 0, 0.1), inset 0 0.75px 0 0 rgba(255, 255, 255, 0.12);
   --shadow-ebox-glow: 0 0 32px 2px rgba(247, 75, 69, 0.36);
 }
-
-

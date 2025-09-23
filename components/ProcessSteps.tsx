@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 
 const solutions = [
   {
@@ -174,23 +175,6 @@ const solutions = [
   },
 ];
 
-const ChevronIcon = () => (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 20 20"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M10.8768 6.25439L14.1326 9.51023C14.4051 9.7827 14.4051 10.2244 14.1326 10.4968L10.8768 13.7527C10.6043 14.0251 10.1626 14.0251 9.89017 13.7527C9.61771 13.4802 9.61771 13.0385 9.89017 12.766L11.9549 10.7012H6.19743C5.81212 10.7012 5.49976 10.3888 5.49976 10.0035C5.49976 9.61823 5.81212 9.30586 6.19743 9.30586H11.9549L9.89017 7.24105C9.61771 6.96859 9.61771 6.52685 9.89017 6.25439C10.1626 5.98193 10.6043 5.98193 10.8768 6.25439Z"
-      fill="white"
-    />
-  </svg>
-);
-
 export default function ProcessSteps() {
   const [activeId, setActiveId] = useState<string>("");
 
@@ -201,7 +185,7 @@ export default function ProcessSteps() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="w-full max-w-5xl mx-auto px-6">
+        <div className="w-full max-w-5xl mx-auto">
           {/* Header */}
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-12 gap-8">
             <motion.div
@@ -264,8 +248,10 @@ export default function ProcessSteps() {
                       </p>
                     </div>
                   </div>
-                  <div className="rounded-full bg-ebox-dark shadow-ebox-glow text-white flex items-center justify-center w-5 h-5 flex-none">
-                    <ChevronIcon />
+                  <div className="rounded-full bg-primary flex items-center justify-center w-5 h-5 flex-none">
+                    <ChevronDown className={`w-4 h-4 text-white transition-transform ${
+                      activeId === solution.id ? "rotate-180" : ""
+                    }`} />
                   </div>
                 </button>
 
@@ -302,7 +288,7 @@ export default function ProcessSteps() {
                               >
                                 <div className="text-base font-medium font-space-grotesk text-text">
                                   {feature.stat}
-                                  <span className="text-atlantio-primary">
+                                  <span className="text-primary">
                                     +
                                   </span>{" "}
                                   {feature.description}

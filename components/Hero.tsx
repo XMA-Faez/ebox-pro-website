@@ -23,23 +23,25 @@ export default function Hero() {
       </div>
 
       {/* Header Content */}
-      <div className="w-full max-w-7xl mx-auto py-16 px-4 relative flex items-center min-h-screen">
-        <div className="flex flex-col gap-5 justify-start items-start max-w-3xl">
+      <div className="w-full max-w-7xl mx-auto py-16 px-4 relative flex items-center justify-center min-h-[100vh] min-h-[100dvh]">
+        <div className="flex flex-col gap-5 justify-center items-center text-center max-w-4xl mx-auto">
           <div className="flex flex-col gap-3">
-            <p className="text-white/60 mb-0 text-base leading-6">
-              BUSINESS AUTOMATION TOOLS
+            <p className="text-white/60 mb-0 text-sm sm:text-base leading-6 uppercase tracking-wider">
+              Premium 3PL Logistics Solutions
             </p>
-            <div className="flex flex-col justify-start items-start">
-              <h1 className="text-white text-hero md:text-hero sm:text-hero-mobile leading-tight tracking-hero font-normal font-space-grotesk uppercase">
+            <div className="flex flex-col justify-center items-center">
+              <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight font-medium font-space-grotesk">
                 Ebox Pro Logistics
-                <br />
-                POWERFUL SHIPPING
               </h1>
+              <p className="text-white/80 text-lg sm:text-xl md:text-2xl mt-4 max-w-2xl">
+                Streamline your supply chain with end-to-end logistics solutions.
+                From warehousing to last-mile delivery, we handle it all.
+              </p>
             </div>
           </div>
 
           {/* Header Details */}
-          <div className="flex flex-wrap justify-start items-center gap-5 text-white">
+          <div className="flex flex-wrap justify-center items-center gap-5 text-white mt-8">
             <Link
               href="/contact"
               className="rounded-full bg-primary text-white text-center px-4 py-3 text-sm font-medium leading-6 no-underline flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover"

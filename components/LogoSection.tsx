@@ -75,7 +75,7 @@ export default function LogoSection() {
               {logos.map((logo, index) => (
                 <div
                   key={`first-${index}`}
-                  className="flex-shrink-0 text-atlantio-dark hover:text-atlantio-primary transition-colors duration-300 opacity-60 hover:opacity-100"
+                  className="flex-shrink-0 text-accent hover:text-primary transition-colors duration-300 opacity-60 hover:opacity-100"
                   dangerouslySetInnerHTML={{ __html: logo.svg }}
                 />
               ))}
@@ -85,7 +85,7 @@ export default function LogoSection() {
               {logos.map((logo, index) => (
                 <div
                   key={`second-${index}`}
-                  className="flex-shrink-0 text-atlantio-dark hover:text-atlantio-primary transition-colors duration-300 opacity-60 hover:opacity-100"
+                  className="flex-shrink-0 text-accent hover:text-primary transition-colors duration-300 opacity-60 hover:opacity-100"
                   dangerouslySetInnerHTML={{ __html: logo.svg }}
                 />
               ))}

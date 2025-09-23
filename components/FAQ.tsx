@@ -31,9 +31,9 @@ const faqs = [
 const CornerMark = () => (
   <div className="absolute top-4 right-4">
     <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M14 14L6 14" stroke="var(--color-atlantio-primary)" strokeWidth="1.2" strokeLinecap="round"/>
-      <path d="M1 1L1 9" stroke="var(--color-atlantio-primary)" strokeWidth="1.2" strokeLinecap="round"/>
-      <rect width="2" height="2" rx="1" transform="matrix(-4.37114e-08 1 1 4.37114e-08 0 13)" fill="var(--color-atlantio-primary)"/>
+      <path d="M14 14L6 14" stroke="var(--color-primary)" strokeWidth="1.2" strokeLinecap="round"/>
+      <path d="M1 1L1 9" stroke="var(--color-primary)" strokeWidth="1.2" strokeLinecap="round"/>
+      <rect width="2" height="2" rx="1" transform="matrix(-4.37114e-08 1 1 4.37114e-08 0 13)" fill="var(--color-primary)"/>
     </svg>
   </div>
 );
