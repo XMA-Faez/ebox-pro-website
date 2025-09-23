@@ -8,23 +8,33 @@ import Link from "next/link";
 const faqs = [
   {
     id: 1,
-    question: "Do you support small businesses?",
-    answer: "Yes, we specialize in providing scalable logistics solutions for businesses of all sizes, from small startups to enterprise companies. Our flexible service packages can be customized to meet your specific needs and budget."
+    question: "What's the cost per order?",
+    answer: "Our pricing is flexible and volume-based. We offer a transparent pay-as-you-go model with no hidden fees. Costs include receiving, storage, and per-order fulfillment. Contact us for a custom quote based on your specific order volume and requirements."
   },
   {
     id: 2,
-    question: "Do you offer global solutions?",
-    answer: "Absolutely! We provide comprehensive global logistics services with coverage across 50+ countries and strategic partnerships with carriers worldwide. Our network ensures reliable service no matter where your business operates."
+    question: "Do you handle COD (Cash on Delivery) orders?",
+    answer: "Yes, we specialize in COD order management, which is highly popular in the UAE market. We handle collection, reconciliation, and remit funds to your account weekly with detailed reporting."
   },
   {
     id: 3,
-    question: "What makes your warehousing solutions different?",
-    answer: "Our warehousing facilities feature state-of-the-art inventory management systems, climate-controlled environments, and 24/7 security monitoring. We provide real-time inventory tracking and flexible storage options."
+    question: "How long does onboarding take?",
+    answer: "Our streamlined onboarding process takes just 5-10 business days from signup to shipping your first order. This includes platform integration (1-3 days), inventory receiving, and testing."
   },
   {
     id: 4,
-    question: "How do you ensure package safety and security?",
-    answer: "We implement multi-layer security protocols including comprehensive insurance coverage, secure facilities, tracked transport, and professional handling by certified drivers to ensure your packages arrive safely."
+    question: "What are your delivery times?",
+    answer: "Dubai & Sharjah: Same-day delivery for orders before cutoff. Abu Dhabi and other Emirates: Next-day delivery. GCC countries: 2-3 days. All orders processed before our 8 PM cutoff are guaranteed next-day delivery across UAE."
+  },
+  {
+    id: 5,
+    question: "Do you have minimum order requirements?",
+    answer: "No strict minimum order quantities! We work with businesses of all sizes. Our pricing model becomes most cost-effective for brands with 100+ orders per month, but we welcome startups and growing businesses."
+  },
+  {
+    id: 6,
+    question: "Which platforms do you integrate with?",
+    answer: "We integrate with all major e-commerce platforms including Amazon (SPN Partner), Noon, Shopify, WooCommerce, Magento, and custom solutions. Integration typically takes 1-3 business days."
   }
 ];
 

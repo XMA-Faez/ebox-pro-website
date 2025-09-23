@@ -7,10 +7,10 @@ import { ChevronDown } from "lucide-react";
 
 const solutions = [
   {
-    id: "freight",
-    title: "Freight Shipping",
+    id: "consultation",
+    title: "Free Consultation",
     description:
-      "Comprehensive freight solutions for all your shipping needs with global reach and reliability.",
+      "Start with a comprehensive needs assessment to understand your order volume, SKUs, and target markets.",
     icon: (
       <svg
         width="20"
@@ -49,27 +49,27 @@ const solutions = [
     ),
     features: [
       {
-        stat: "50M",
-        description: "shipping destinations",
-        text: "Global coverage across all major shipping routes and destinations worldwide.",
+        stat: "15",
+        description: "minute discovery call",
+        text: "Quick assessment of your current fulfillment challenges and growth objectives.",
       },
       {
-        stat: "1.2K",
-        description: "carrier routes",
-        text: "Extensive network of trusted carrier partnerships for optimal route coverage.",
+        stat: "24",
+        description: "hour proposal delivery",
+        text: "Customized pricing and service proposal based on your specific requirements.",
       },
       {
-        stat: "10K",
-        description: "professional drivers",
-        text: "Experienced and certified drivers ensuring safe and timely deliveries.",
+        stat: "100%",
+        description: "transparent pricing",
+        text: "No hidden fees, pay-as-you-go model with clear cost breakdowns.",
       },
     ],
   },
   {
-    id: "customer",
-    title: "Road to Customer",
+    id: "integration",
+    title: "Platform Integration",
     description:
-      "Direct-to-customer delivery solutions with personalized service and real-time tracking.",
+      "Seamless connection with your e-commerce platforms in just 1-3 business days.",
     icon: (
       <svg
         width="20"
@@ -110,27 +110,27 @@ const solutions = [
     ),
     features: [
       {
-        stat: "50M",
-        description: "shipping destinations",
-        text: "Lorem ipsum dolor sit amet, consectet.",
+        stat: "1-3",
+        description: "days integration time",
+        text: "Quick setup with Amazon, Noon, Shopify, WooCommerce, and other major platforms.",
       },
       {
-        stat: "1.2K",
-        description: "carrier routes",
-        text: "Lorem ipsum dolor sit amet, consectet.",
+        stat: "24/7",
+        description: "real-time sync",
+        text: "Orders automatically flow from your store to our WMS for instant processing.",
       },
       {
-        stat: "10K",
-        description: "professional drivers",
-        text: "Lorem ipsum dolor sit amet, consectet.",
+        stat: "100%",
+        description: "API connectivity",
+        text: "Seamless data exchange between all your sales channels and our system.",
       },
     ],
   },
   {
-    id: "storage",
-    title: "Storage Solutions",
+    id: "golive",
+    title: "Go Live & Scale",
     description:
-      "Comprehensive warehousing and storage solutions with advanced inventory management systems.",
+      "Start fulfilling orders within 5-10 days. Scale seamlessly with flexible storage and no MOQs.",
     icon: (
       <svg
         width="20"
@@ -157,19 +157,19 @@ const solutions = [
     ),
     features: [
       {
-        stat: "50M",
-        description: "shipping destinations",
-        text: "Lorem ipsum dolor sit amet, consectet.",
+        stat: "5-10",
+        description: "days to first order",
+        text: "From signup to shipping your first order in under two weeks.",
       },
       {
-        stat: "1.2K",
-        description: "carrier routes",
-        text: "Lorem ipsum dolor sit amet, consectet.",
+        stat: "99%+",
+        description: "order accuracy",
+        text: "Tech-driven operations ensure precision in every shipment.",
       },
       {
-        stat: "10K",
-        description: "professional drivers",
-        text: "Lorem ipsum dolor sit amet, consectet.",
+        stat: "24/7",
+        description: "dashboard access",
+        text: "Monitor inventory, orders, and analytics anytime from anywhere.",
       },
     ],
   },
@@ -195,10 +195,10 @@ export default function ProcessSteps() {
               className="flex flex-col gap-4"
             >
               <h2 className="text-4xl lg:text-6xl font-medium font-space-grotesk leading-tight tracking-tighter text-text">
-                Ebox Pro Logistics Capabilities
+                Your Onboarding Journey
               </h2>
               <p className="text-lg leading-6 text-text-secondary">
-                Delivering Possibilities, Globally
+                From signup to shipping in under 2 weeks
               </p>
             </motion.div>
 
@@ -209,11 +209,11 @@ export default function ProcessSteps() {
               className="lg:text-left"
             >
               <div className="border border-text rounded-full px-2 py-0.5 text-sm font-medium text-text inline-block w-fit mb-4">
-                Client Reviews
+                Quick Setup Process
               </div>
               <p className="text-lg leading-6 text-text max-w-md">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Praesent porttitor sapien vel facilisis lobortis.
+                Our streamlined onboarding gets you from signup to shipping in days, not weeks.
+                No complex contracts, no hidden fees.
               </p>
             </motion.div>
           </div>

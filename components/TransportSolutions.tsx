@@ -3,34 +3,35 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import WarehouseImage from "@/public/Industrial Warehouse Activity.png";
 
 const transportCards = [
   {
-    title: "Overnight Freight Delivery",
-    description: "Fast and reliable overnight delivery services for urgent shipments with guaranteed timeframes.",
-    image: "/graphics/transport-01.webp",
-    badge: "Delivery"
+    title: "Dubai Fulfillment Center",
+    description: "Strategic location in Dubai Investment Park with access to major highways and ports. Same-day delivery to Dubai & Sharjah.",
+    image: WarehouseImage.src,
+    badge: "Warehouse"
   },
   {
-    title: "Advanced Transport Solutions",
-    description: "Comprehensive transportation management with advanced tracking and optimization technologies.",
-    image: "/graphics/transport-02.webp",
-    badge: "Delivery"
+    title: "Multi-Carrier Network",
+    description: "Partnerships with DHL, Aramex, FedEx, Emirates Post and local last-mile providers for optimal speed and cost.",
+    image: "https://img.freepik.com/premium-photo/red-delivery-van-with-open-doors-hand-truck-with-cardboard-boxes-iin-row-white-vans-delivery-shipping-concept_708636-637.jpg",
+    badge: "Network"
   }
 ];
 
 const transportFeatures = [
   {
     number: "1",
-    description: "Advanced route optimization using AI-powered logistics algorithms for maximum efficiency."
+    description: "Complete UAE coverage across all 7 Emirates with same-day Dubai delivery and next-day nationwide."
   },
   {
     number: "2",
-    description: "Real-time tracking and monitoring systems providing complete shipment visibility."
+    description: "Real-time WMS integration with automated order processing and live inventory tracking."
   },
   {
     number: "3",
-    description: "24/7 customer support with dedicated account managers for personalized service."
+    description: "Dedicated account managers with 24-hour response SLA and transparent pricing model."
   }
 ];
 
@@ -49,14 +50,14 @@ export default function TransportSolutions() {
               className="flex flex-col gap-5"
             >
               {/* Transport Image Wrapper */}
-              <div className="rounded-3xl bg-gradient-to-r from-white to-black p-2 lg:px-9 relative overflow-hidden">
+              <div className="rounded-3xl relative overflow-hidden">
                 <div className="border border-opacity-low rounded-2xl relative overflow-hidden">
                   <Image
                     src={card.image}
                     alt={card.title}
-                    width={500}
-                    height={300}
-                    className="w-full h-auto object-cover"
+                    width={800}
+                    height={450}
+                    className="w-full aspect-video object-cover"
                   />
                   <div className="absolute top-2 right-2 bg-white text-text px-2.5 py-0.5 rounded-full text-xs font-medium shadow-lg">
                     {card.badge}
@@ -92,13 +93,13 @@ export default function TransportSolutions() {
           >
             <div className="flex flex-col gap-6">
               <div className="border border-text rounded-full px-2 py-0.5 text-sm font-medium text-text inline-block w-fit">
-                Transport Solutions
+                UAE Operations
               </div>
               <h3 className="text-3xl lg:text-4xl font-medium font-space-grotesk leading-tight tracking-tighter text-text">
-                Deliver on time and with satisfaction.
+                Local expertise, global standards.
               </h3>
               <p className="text-lg leading-6 text-text-secondary">
-                Advanced logistics solutions designed to optimize your supply chain with cutting-edge technology and reliable service.
+                Based in Dubai with deep UAE market knowledge. We understand COD preferences, delivery expectations, and regulatory requirements.
               </p>
             </div>
             <Link

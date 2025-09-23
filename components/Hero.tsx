@@ -27,15 +27,15 @@ export default function Hero() {
         <div className="flex flex-col gap-5 justify-center items-center text-center max-w-4xl mx-auto">
           <div className="flex flex-col gap-3">
             <p className="text-white/60 mb-0 text-sm sm:text-base leading-6 uppercase tracking-wider">
-              Premium 3PL Logistics Solutions
+              Tech-Driven 3PL Fulfillment for E-Commerce
             </p>
             <div className="flex flex-col justify-center items-center">
               <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight font-medium font-space-grotesk">
-                Ebox Pro Logistics
+                Same-Day Delivery Across UAE
               </h1>
               <p className="text-white/80 text-lg sm:text-xl md:text-2xl mt-4 max-w-2xl">
-                Streamline your supply chain with end-to-end logistics solutions.
-                From warehousing to last-mile delivery, we handle it all.
+                From Dubai warehouse to customer doorstep in hours.
+                99%+ order accuracy with multi-channel integration.
               </p>
             </div>
           </div>
@@ -44,15 +44,25 @@ export default function Hero() {
           <div className="flex flex-wrap justify-center items-center gap-5 text-white mt-8">
             <Link
               href="/contact"
-              className="rounded-full bg-primary text-white text-center px-4 py-3 text-sm font-medium leading-6 no-underline flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover"
+              className="rounded-full bg-primary text-white text-center px-6 py-3 text-sm font-medium leading-6 no-underline flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover"
             >
-              Contact Us
+              Get Free Fulfillment Assessment
             </Link>
+          </div>
 
-            <div className="bg-white/8 w-px h-4"></div>
-
-            <div className="text-sm font-medium leading-6">
-              +(61)481 454 678
+          {/* Value Propositions */}
+          <div className="flex flex-wrap justify-center items-center gap-6 mt-8 text-white/80 text-sm">
+            <div className="flex items-center gap-2">
+              <span className="text-primary">✓</span>
+              <span>Amazon SPN Partner</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-primary">✓</span>
+              <span>No Minimum Orders</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-primary">✓</span>
+              <span>Live in 5-10 Days</span>
             </div>
           </div>
         </div>
