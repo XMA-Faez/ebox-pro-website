@@ -230,9 +230,10 @@ export default function ProcessSteps() {
               >
                 {/* Solution Header */}
                 <button
-                  onClick={() =>
-                    setActiveId(activeId === solution.id ? "" : solution.id)
-                  }
+                  //TODO: Enable accordion functionality
+                  // onClick={() =>
+                  //   setActiveId(activeId === solution.id ? "" : solution.id)
+                  // }
                   className="w-full p-6 lg:p-7 flex items-center justify-between hover:bg-surface-hover transition-colors group"
                 >
                   <div className="flex items-center gap-4 lg:gap-8 flex-1">
