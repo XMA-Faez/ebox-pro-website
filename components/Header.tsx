@@ -1,198 +1,392 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Package, ShoppingCart, Truck, BarChart3, Users, Zap } from "lucide-react";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Logo from "@/public/Ebox - Final Logo/ebox - final logo -11.svg";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { fadeInDown } from "@/lib/animations";
-import { Button } from "@/components/ui/Button";
 
-const navigation = [
-  {
-    name: "Services",
-    href: "#services",
-    hasDropdown: true,
-    dropdownItems: [
-      { name: "Amazon FBA Prep", href: "#amazon-fba", icon: Package },
-      { name: "Shopify Fulfillment", href: "#shopify", icon: ShoppingCart },
-      { name: "Noon Integration", href: "#noon", icon: Truck },
-      { name: "Multi-Channel", href: "#multi-channel", icon: BarChart3 },
-    ],
-  },
-  { name: "About", href: "#about" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "Contact", href: "#contact" },
-];
+const navigationLinks = {
+  services: [
+    { name: "E-commerce Fulfillment", href: "#services" },
+    { name: "Amazon & Noon Integration", href: "#services" },
+    { name: "Same-Day Delivery", href: "#transport", new: true },
+    { name: "Product Registration", href: "#capabilities" },
+    { name: "B2B Distribution", href: "#services" },
+    { name: "Returns Management", href: "#process" },
+  ],
+  solutions: [
+    { name: "Multi-Channel Integration", href: "#capabilities" },
+    { name: "WMS & OXM Platform", href: "#services", new: true },
+    { name: "Inventory Management", href: "#services" },
+    { name: "Custom Packaging", href: "#services" },
+    { name: "Kitting & Bundling", href: "#services" },
+    { name: "COD Processing", href: "#transport" },
+  ],
+  company: [
+    { name: "About Us", href: "/about" },
+    { name: "How It Works", href: "#process" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "FAQ", href: "#faq" },
+    { name: "Contact", href: "#contact", new: true },
+  ],
+};
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
-    <motion.header
-      initial="initial"
-      animate="animate"
-      variants={fadeInDown}
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg"
-          : "bg-transparent"
-      )}
-    >
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex items-center cursor-pointer hover:scale-105 transition-transform duration-200">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-gold-rich to-gold-primary blur-lg opacity-60" />
-              <div className="relative bg-gradient-to-r from-gold-rich to-gold-primary bg-clip-text">
-                <span className="text-2xl md:text-3xl font-bold text-transparent">
-                  Ebox Pro
-                </span>
+    <>
+      <header className="absolute top-0 left-0 right-0 z-30 bg-transparent">
+        <div className="bg-transparent flex justify-center items-center py-8 px-4">
+          <div className="flex justify-center items-center w-full max-w-[1192px] gap-8">
+            {/* Navigation Left */}
+            <div className="flex-1 flex justify-start items-center">
+              <NavigationMenu className="hidden md:block">
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="rounded-full bg-transparent text-white px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px] data-[state=open]:bg-white data-[state=open]:backdrop-blur-[8px]">
+                      Services
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid gap-1 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
+                        {navigationLinks.services.map((link) => (
+                          <li key={link.name}>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={link.href}
+                                className={cn(
+                                  "block select-none rounded-md px-3 py-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                                  "flex items-start justify-between"
+                                )}
+                              >
+                                <span className="text-sm font-medium leading-none">
+                                  {link.name}
+                                </span>
+                                {link.new && (
+                                  <span className="flex items-center gap-1 text-xs">
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <circle
+                                        cx="8.00016"
+                                        cy="8.00016"
+                                        r="6.66667"
+                                        fill="#F74B45"
+                                        fillOpacity="0.16"
+                                      />
+                                      <circle cx="8" cy="8" r="2" fill="#F74B45" />
+                                    </svg>
+                                    <span>New</span>
+                                  </span>
+                                )}
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="rounded-full bg-transparent text-white px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px] data-[state=open]:bg-white data-[state=open]:backdrop-blur-[8px]">
+                      Solutions
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid gap-1 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
+                        {navigationLinks.solutions.map((link) => (
+                          <li key={link.name}>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={link.href}
+                                className={cn(
+                                  "block select-none rounded-md px-3 py-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                                  "flex items-start justify-between"
+                                )}
+                              >
+                                <span className="text-sm font-medium leading-none">
+                                  {link.name}
+                                </span>
+                                {link.new && (
+                                  <span className="flex items-center gap-1 text-xs">
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <circle
+                                        cx="8.00016"
+                                        cy="8.00016"
+                                        r="6.66667"
+                                        fill="#F74B45"
+                                        fillOpacity="0.16"
+                                      />
+                                      <circle cx="8" cy="8" r="2" fill="#F74B45" />
+                                    </svg>
+                                    <span>New</span>
+                                  </span>
+                                )}
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="rounded-full bg-transparent text-white px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px] data-[state=open]:bg-white data-[state=open]:backdrop-blur-[8px]">
+                      Company
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid gap-1 p-4 md:w-[300px]">
+                        {navigationLinks.company.map((link) => (
+                          <li key={link.name}>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={link.href}
+                                className={cn(
+                                  "block select-none rounded-md px-3 py-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                                  "flex items-start justify-between"
+                                )}
+                              >
+                                <span className="text-sm font-medium leading-none">
+                                  {link.name}
+                                </span>
+                                {link.new && (
+                                  <span className="flex items-center gap-1 text-xs">
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <circle
+                                        cx="8.00016"
+                                        cy="8.00016"
+                                        r="6.66667"
+                                        fill="#F74B45"
+                                        fillOpacity="0.16"
+                                      />
+                                      <circle cx="8" cy="8" r="2" fill="#F74B45" />
+                                    </svg>
+                                    <span>New</span>
+                                  </span>
+                                )}
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+            </div>
+
+            {/* Logo Center */}
+            <Link href="/" className="flex-shrink-0">
+              <Image
+                src={Logo}
+                alt="Ebox Pro"
+                width={120}
+                height={40}
+                className="h-20 w-auto"
+              />
+            </Link>
+
+            {/* Navigation Right */}
+            <div className="flex-1 flex justify-end items-center">
+              <div className="hidden md:flex items-center gap-2">
+                <Link
+                  href="#contact"
+                  className="rounded-full bg-primary text-white text-center px-4 py-3 text-sm font-medium leading-6 no-underline flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover"
+                >
+                  Get Free Assessment
+                </Link>
               </div>
+
+              {/* Mobile menu button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden rounded-full bg-transparent transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px] flex justify-center items-center p-3 min-h-[44px] min-w-[44px]"
+              >
+                <div className="flex flex-col justify-center items-center w-6 h-6 gap-1 p-0">
+                  {isMobileMenuOpen ? (
+                    <>
+                      <div className="w-4 h-0.5 bg-white rounded-full transform rotate-45 translate-y-0.5"></div>
+                      <div className="w-4 h-0.5 bg-white rounded-full transform -rotate-45 -translate-y-0.5"></div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="w-4 h-0.5 bg-white rounded-full"></div>
+                      <div className="w-4 h-0.5 bg-white rounded-full"></div>
+                      <div className="w-4 h-0.5 bg-white rounded-full"></div>
+                    </>
+                  )}
+                </div>
+              </button>
             </div>
           </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <div
-                key={item.name}
-                className="relative"
-                onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <a
-                  href={item.href}
-                  className={cn(
-                    "flex items-center gap-1 text-base font-medium transition-all duration-200 hover:-translate-y-0.5",
-                    isScrolled ? "text-text-secondary hover:text-gold-rich" : "text-black hover:text-gold-rich"
-                  )}
-                >
-                  {item.name}
-                  {item.hasDropdown && (
-                    <ChevronDown className="w-4 h-4" />
-                  )}
-                </a>
-
-                {/* Dropdown Menu */}
-                <AnimatePresence>
-                  {item.hasDropdown && activeDropdown === item.name && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl overflow-hidden"
-                    >
-                      {item.dropdownItems?.map((dropdownItem) => {
-                        const Icon = dropdownItem.icon;
-                        return (
-                          <a
-                            key={dropdownItem.name}
-                            href={dropdownItem.href}
-                            className="flex items-center gap-3 px-4 py-3 text-text-secondary hover:bg-gold-light hover:text-gold-rich hover:translate-x-1 transition-all duration-200"
-                          >
-                            <Icon className="w-5 h-5" />
-                            <span className="font-medium">{dropdownItem.name}</span>
-                          </a>
-                        );
-                      })}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <div className="hidden lg:block">
-            <Button variant="primary" size="md">
-              Get Started
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className={cn(
-              "lg:hidden p-2 rounded-lg transition-all duration-200 active:scale-95",
-              isScrolled ? "text-text-secondary" : "text-black"
-            )}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden overflow-hidden"
-            >
-              <div className="py-4 space-y-2">
-                {navigation.map((item) => (
-                  <div key={item.name}>
-                    <a
-                      href={item.href}
-                      className={cn(
-                        "block px-4 py-3 text-base font-medium rounded-lg transition-colors",
-                        isScrolled
-                          ? "text-text-secondary hover:bg-gold-light hover:text-gold-rich"
-                          : "text-black hover:bg-gold-light hover:text-gold-rich"
-                      )}
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden rounded-b-3xl bg-white/[0.1] backdrop-blur-[10px] flex flex-col pb-8 overflow-hidden max-h-[85vh] overflow-y-auto">
+            <div className="flex flex-col">
+              {/* Services Section */}
+              <div className="border-b border-white/[0.08]">
+                <div className="text-white px-4 py-4 text-xs font-medium uppercase tracking-wide">
+                  Services
+                </div>
+                <div className="px-4 pb-4">
+                  {navigationLinks.services.map((link) => (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className="flex items-center justify-between text-white/80 hover:text-white px-2 py-3 text-sm transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      {item.name}
-                    </a>
-                    {item.hasDropdown && (
-                      <div className="ml-4 mt-2 space-y-1">
-                        {item.dropdownItems?.map((dropdownItem) => {
-                          const Icon = dropdownItem.icon;
-                          return (
-                            <a
-                              key={dropdownItem.name}
-                              href={dropdownItem.href}
-                              className={cn(
-                                "flex items-center gap-2 px-4 py-2 text-sm rounded-lg transition-colors",
-                                isScrolled
-                                  ? "text-text-muted hover:bg-gold-light hover:text-gold-rich"
-                                  : "text-black/80 hover:bg-gold-light hover:text-gold-rich"
-                              )}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                              <Icon className="w-4 h-4" />
-                              {dropdownItem.name}
-                            </a>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                ))}
-                <Button variant="primary" size="lg" className="w-full mt-4">
-                  Get Started
-                </Button>
+                      <span>{link.name}</span>
+                      {link.new && (
+                        <span className="flex items-center gap-1 text-xs">
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle
+                              cx="8.00016"
+                              cy="8.00016"
+                              r="6.66667"
+                              fill="#F74B45"
+                              fillOpacity="0.16"
+                            />
+                            <circle cx="8" cy="8" r="2" fill="#F74B45" />
+                          </svg>
+                          <span>New</span>
+                        </span>
+                      )}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
-    </motion.header>
+
+              {/* Solutions Section */}
+              <div className="border-b border-white/[0.08]">
+                <div className="text-white px-4 py-4 text-xs font-medium uppercase tracking-wide">
+                  Solutions
+                </div>
+                <div className="px-4 pb-4">
+                  {navigationLinks.solutions.map((link) => (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className="flex items-center justify-between text-white/80 hover:text-white px-2 py-3 text-sm transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <span>{link.name}</span>
+                      {link.new && (
+                        <span className="flex items-center gap-1 text-xs">
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle
+                              cx="8.00016"
+                              cy="8.00016"
+                              r="6.66667"
+                              fill="#F74B45"
+                              fillOpacity="0.16"
+                            />
+                            <circle cx="8" cy="8" r="2" fill="#F74B45" />
+                          </svg>
+                          <span>New</span>
+                        </span>
+                      )}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Company Section */}
+              <div className="border-b border-white/[0.08]">
+                <div className="text-white px-4 py-4 text-xs font-medium uppercase tracking-wide">
+                  Company
+                </div>
+                <div className="px-4 pb-4">
+                  {navigationLinks.company.map((link) => (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className="flex items-center justify-between text-white/80 hover:text-white px-2 py-3 text-sm transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <span>{link.name}</span>
+                      {link.new && (
+                        <span className="flex items-center gap-1 text-xs">
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle
+                              cx="8.00016"
+                              cy="8.00016"
+                              r="6.66667"
+                              fill="#F74B45"
+                              fillOpacity="0.16"
+                            />
+                            <circle cx="8" cy="8" r="2" fill="#F74B45" />
+                          </svg>
+                          <span>New</span>
+                        </span>
+                      )}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-stretch justify-center mt-6 px-4 gap-2">
+              <Link
+                href="#contact"
+                className="rounded-full bg-primary text-white text-center px-4 py-3 text-sm font-medium leading-6 no-underline w-full transition-all duration-300 hover:bg-primary-hover"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Get Free Assessment
+              </Link>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* Navigation line */}
+      <div className="absolute bottom-0 left-0 right-0 flex justify-center items-center px-4">
+        <div className="bg-white/[0.08] w-full max-w-[1192px] h-px"></div>
+      </div>
+    </>
   );
 }
