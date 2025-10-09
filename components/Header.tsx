@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "@/public/Ebox - Final Logo/ebox - final logo -11.svg";
+import Logo from "@/public/Ebox - Final Logo/ebox - final logo -08.svg";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -47,13 +47,24 @@ export default function Header() {
     <>
       <header className="absolute top-0 left-0 right-0 z-30 bg-transparent">
         <div className="bg-transparent flex justify-center items-center py-8 px-4">
-          <div className="flex justify-center items-center w-full max-w-[1192px] gap-8">
-            {/* Navigation Left */}
-            <div className="flex-1 flex justify-start items-center">
+          <div className="flex justify-between items-center w-full max-w-7xl px-4 gap-8">
+            {/* Logo Left */}
+            <Link href="/" className="flex-shrink-0">
+              <Image
+                src={Logo}
+                alt="Ebox Pro"
+                width={120}
+                height={40}
+                className="h-16 w-auto"
+              />
+            </Link>
+
+            {/* Navigation Center */}
+            <div className="flex-1 flex justify-center items-center">
               <NavigationMenu className="hidden md:block">
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="rounded-full bg-transparent text-white px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px] data-[state=open]:bg-white data-[state=open]:backdrop-blur-[8px]">
+                    <NavigationMenuTrigger className="rounded-full bg-transparent text-black px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-black/[0.08] hover:backdrop-blur-[8px] data-[state=open]:bg-black data-[state=open]:backdrop-blur-[8px]">
                       Services
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -65,7 +76,7 @@ export default function Header() {
                                 href={link.href}
                                 className={cn(
                                   "block select-none rounded-md px-3 py-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                                  "flex items-start justify-between"
+                                  "flex items-start justify-between",
                                 )}
                               >
                                 <span className="text-sm font-medium leading-none">
@@ -87,7 +98,12 @@ export default function Header() {
                                         fill="#F74B45"
                                         fillOpacity="0.16"
                                       />
-                                      <circle cx="8" cy="8" r="2" fill="#F74B45" />
+                                      <circle
+                                        cx="8"
+                                        cy="8"
+                                        r="2"
+                                        fill="#F74B45"
+                                      />
                                     </svg>
                                     <span>New</span>
                                   </span>
@@ -101,7 +117,7 @@ export default function Header() {
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="rounded-full bg-transparent text-white px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px] data-[state=open]:bg-white data-[state=open]:backdrop-blur-[8px]">
+                    <NavigationMenuTrigger className="rounded-full bg-transparent text-black px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-black/[0.08] hover:backdrop-blur-[8px] data-[state=open]:bg-black data-[state=open]:backdrop-blur-[8px]">
                       Solutions
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -113,7 +129,7 @@ export default function Header() {
                                 href={link.href}
                                 className={cn(
                                   "block select-none rounded-md px-3 py-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                                  "flex items-start justify-between"
+                                  "flex items-start justify-between",
                                 )}
                               >
                                 <span className="text-sm font-medium leading-none">
@@ -135,7 +151,12 @@ export default function Header() {
                                         fill="#F74B45"
                                         fillOpacity="0.16"
                                       />
-                                      <circle cx="8" cy="8" r="2" fill="#F74B45" />
+                                      <circle
+                                        cx="8"
+                                        cy="8"
+                                        r="2"
+                                        fill="#F74B45"
+                                      />
                                     </svg>
                                     <span>New</span>
                                   </span>
@@ -149,7 +170,7 @@ export default function Header() {
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="rounded-full bg-transparent text-white px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px] data-[state=open]:bg-white data-[state=open]:backdrop-blur-[8px]">
+                    <NavigationMenuTrigger className="rounded-full bg-transparent text-black px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-black/[0.08] hover:backdrop-blur-[8px] data-[state=open]:bg-black data-[state=open]:backdrop-blur-[8px]">
                       Company
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -161,7 +182,7 @@ export default function Header() {
                                 href={link.href}
                                 className={cn(
                                   "block select-none rounded-md px-3 py-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                                  "flex items-start justify-between"
+                                  "flex items-start justify-between",
                                 )}
                               >
                                 <span className="text-sm font-medium leading-none">
@@ -183,7 +204,12 @@ export default function Header() {
                                         fill="#F74B45"
                                         fillOpacity="0.16"
                                       />
-                                      <circle cx="8" cy="8" r="2" fill="#F74B45" />
+                                      <circle
+                                        cx="8"
+                                        cy="8"
+                                        r="2"
+                                        fill="#F74B45"
+                                      />
                                     </svg>
                                     <span>New</span>
                                   </span>
@@ -199,19 +225,8 @@ export default function Header() {
               </NavigationMenu>
             </div>
 
-            {/* Logo Center */}
-            <Link href="/" className="flex-shrink-0">
-              <Image
-                src={Logo}
-                alt="Ebox Pro"
-                width={120}
-                height={40}
-                className="h-20 w-auto"
-              />
-            </Link>
-
-            {/* Navigation Right */}
-            <div className="flex-1 flex justify-end items-center">
+            {/* CTA and Mobile Menu Right */}
+            <div className="flex items-center gap-2">
               <div className="hidden md:flex items-center gap-2">
                 <Link
                   href="#contact"
@@ -224,19 +239,19 @@ export default function Header() {
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden rounded-full bg-transparent transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px] flex justify-center items-center p-3 min-h-[44px] min-w-[44px]"
+                className="md:hidden rounded-full bg-transparent transition-colors duration-300 hover:bg-black/[0.08] hover:backdrop-blur-[8px] flex justify-center items-center p-3 min-h-[44px] min-w-[44px]"
               >
                 <div className="flex flex-col justify-center items-center w-6 h-6 gap-1 p-0">
                   {isMobileMenuOpen ? (
                     <>
-                      <div className="w-4 h-0.5 bg-white rounded-full transform rotate-45 translate-y-0.5"></div>
-                      <div className="w-4 h-0.5 bg-white rounded-full transform -rotate-45 -translate-y-0.5"></div>
+                      <div className="w-4 h-0.5 bg-black rounded-full transform rotate-45 translate-y-0.5"></div>
+                      <div className="w-4 h-0.5 bg-black rounded-full transform -rotate-45 -translate-y-0.5"></div>
                     </>
                   ) : (
                     <>
-                      <div className="w-4 h-0.5 bg-white rounded-full"></div>
-                      <div className="w-4 h-0.5 bg-white rounded-full"></div>
-                      <div className="w-4 h-0.5 bg-white rounded-full"></div>
+                      <div className="w-4 h-0.5 bg-black rounded-full"></div>
+                      <div className="w-4 h-0.5 bg-black rounded-full"></div>
+                      <div className="w-4 h-0.5 bg-black rounded-full"></div>
                     </>
                   )}
                 </div>
@@ -247,11 +262,11 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden rounded-b-3xl bg-white/[0.1] backdrop-blur-[10px] flex flex-col pb-8 overflow-hidden max-h-[85vh] overflow-y-auto">
+          <div className="md:hidden rounded-b-3xl bg-black/[0.1] backdrop-blur-[10px] flex flex-col pb-8 overflow-hidden max-h-[85vh] overflow-y-auto">
             <div className="flex flex-col">
               {/* Services Section */}
-              <div className="border-b border-white/[0.08]">
-                <div className="text-white px-4 py-4 text-xs font-medium uppercase tracking-wide">
+              <div className="border-b border-black/[0.08]">
+                <div className="text-black px-4 py-4 text-xs font-medium uppercase tracking-wide">
                   Services
                 </div>
                 <div className="px-4 pb-4">
@@ -259,7 +274,7 @@ export default function Header() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className="flex items-center justify-between text-white/80 hover:text-white px-2 py-3 text-sm transition-colors"
+                      className="flex items-center justify-between text-black/80 hover:text-black px-2 py-3 text-sm transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       <span>{link.name}</span>
@@ -290,8 +305,8 @@ export default function Header() {
               </div>
 
               {/* Solutions Section */}
-              <div className="border-b border-white/[0.08]">
-                <div className="text-white px-4 py-4 text-xs font-medium uppercase tracking-wide">
+              <div className="border-b border-black/[0.08]">
+                <div className="text-black px-4 py-4 text-xs font-medium uppercase tracking-wide">
                   Solutions
                 </div>
                 <div className="px-4 pb-4">
@@ -299,7 +314,7 @@ export default function Header() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className="flex items-center justify-between text-white/80 hover:text-white px-2 py-3 text-sm transition-colors"
+                      className="flex items-center justify-between text-black/80 hover:text-black px-2 py-3 text-sm transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       <span>{link.name}</span>
@@ -330,8 +345,8 @@ export default function Header() {
               </div>
 
               {/* Company Section */}
-              <div className="border-b border-white/[0.08]">
-                <div className="text-white px-4 py-4 text-xs font-medium uppercase tracking-wide">
+              <div className="border-b border-black/[0.08]">
+                <div className="text-black px-4 py-4 text-xs font-medium uppercase tracking-wide">
                   Company
                 </div>
                 <div className="px-4 pb-4">
@@ -339,7 +354,7 @@ export default function Header() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className="flex items-center justify-between text-white/80 hover:text-white px-2 py-3 text-sm transition-colors"
+                      className="flex items-center justify-between text-black/80 hover:text-black px-2 py-3 text-sm transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       <span>{link.name}</span>
@@ -385,7 +400,7 @@ export default function Header() {
 
       {/* Navigation line */}
       <div className="absolute bottom-0 left-0 right-0 flex justify-center items-center px-4">
-        <div className="bg-white/[0.08] w-full max-w-[1192px] h-px"></div>
+        <div className="bg-black/[0.08] w-full max-w-[1192px] h-px"></div>
       </div>
     </>
   );
