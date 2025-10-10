@@ -8,7 +8,7 @@ import LogoSection from "@/components/LogoSection";
 export default function Hero() {
   return (
     <>
-      <section className="relative min-h-screen bg-white pt-40">
+      <section className="relative bg-white pt-40">
         <div className="w-full max-w-7xl mx-auto px-4 relative flex items-center">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
             {/* Left Column - Copy */}

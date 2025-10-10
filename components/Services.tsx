@@ -2,22 +2,19 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ReactNode } from "react";
-import {
-  TbShoppingCart,
-  TbTruck,
-  TbDashboard,
-  TbPackageImport,
-  TbGift,
-  TbShieldCheck
-} from "react-icons/tb";
+import Image from "next/image";
+import WarehouseIllustration from "@/public/illustrations/warehousing.svg";
+import ComplianceIllustration from "@/public/illustrations/compliant.svg";
+import { IntegrationIllustration } from "@/components/IntegrationIllustration";
 
 interface ServiceItem {
   title: string;
+  subtitle: string;
   description: string;
   features: string[];
-  icon: ReactNode;
-  mark: "top-right" | "bottom-right";
+  illustrationPlaceholder: string;
+  illustration?: any; // Can be StaticImageData or string path
+  customIllustration?: React.ReactNode; // For custom React components
 }
 
 interface ServicesProps {
@@ -26,296 +23,206 @@ interface ServicesProps {
 
 const services: ServiceItem[] = [
   {
-    title: "Multi-Channel Fulfillment",
+    title: "Warehousing & Fulfillment",
+    subtitle: "Strategic Dubai Location with Real-Time Operations",
     description:
-      "Seamless integration with Amazon, Noon, Shopify, and WooCommerce. Manage all your sales channels from one inventory pool.",
+      "Store your inventory in our state-of-the-art Dubai warehouse facility. We handle everything from receiving and shelving to picking, packing, and shipping. Our strategic location in Dubai Industrial Park ensures quick access to all UAE markets with optimized delivery routes.",
     features: [
-      "Amazon SPN Partner",
-      "Noon Seller Lab approved",
-      "Shopify & WooCommerce ready",
+      "Climate-controlled storage for sensitive products",
+      "Real-time inventory tracking via WMS platform",
+      "99%+ picking accuracy with 3-step quality control",
+      "Same-day dispatch for orders before 8 PM cutoff",
     ],
-    icon: <TbShoppingCart size={20} />,
-    mark: "top-right",
+    illustrationPlaceholder: "[WAREHOUSE_ILLUSTRATION]",
+    illustration: WarehouseIllustration,
   },
   {
-    title: "Same-Day Delivery",
+    title: "Multi-Platform Integration",
+    subtitle: "One Inventory Pool Across All Sales Channels",
     description:
-      "Dubai & Sharjah same-day, all 7 Emirates next-day. Orders processed before 8PM cutoff for guaranteed delivery times.",
+      "Seamlessly connect all your e-commerce platforms to our centralized system. Whether you sell on Amazon, Noon, Shopify, or your own website, manage everything from one unified inventory pool. No more manual updates or stock discrepancies across channels.",
     features: [
-      "Same-day in Dubai",
-      "Next-day UAE-wide",
-      "2-3 days GCC delivery",
+      "Official Amazon SPN Partner with priority handling",
+      "Approved Noon logistics partner integration",
+      "Shopify, WooCommerce, and Magento ready",
+      "Real-time sync prevents overselling",
     ],
-    icon: <TbTruck size={20} />,
-    mark: "top-right",
+    illustrationPlaceholder: "[INTEGRATION_ILLUSTRATION]",
+    customIllustration: <IntegrationIllustration />,
   },
   {
-    title: "Real-Time Inventory",
+    title: "UAE Market Entry Support",
+    subtitle: "Complete Regulatory Compliance & Product Registration",
     description:
-      "Advanced WMS/OMS dashboard with live tracking. Monitor stock levels, orders, and performance metrics 24/7.",
+      "Navigate UAE market requirements effortlessly with our comprehensive registration and compliance services. We handle all the paperwork, certifications, and approvals needed to legally sell your products in the UAE market, from customs clearance to ministry-level certifications.",
     features: [
-      "Live inventory tracking",
-      "99%+ order accuracy",
-      "SKU-level analytics",
+      "Product registration with UAE authorities",
+      "Customs documentation and clearance",
+      "Ministry certifications and approvals",
+      "Ongoing compliance monitoring and updates",
     ],
-    icon: <TbDashboard size={20} />,
-    mark: "bottom-right",
-  },
-  {
-    title: "Returns Processing",
-    description:
-      "24-48 hour returns processing with inspection, restocking, and detailed reporting. Damaged goods photographed & logged.",
-    features: [
-      "24-hour inspection",
-      "Automated restocking",
-      "Detailed return analytics",
-    ],
-    icon: <TbPackageImport size={20} />,
-    mark: "top-right",
-  },
-  {
-    title: "Custom Packaging",
-    description:
-      "Branded packaging, gift wrapping, and kitting services. Create memorable unboxing experiences for your customers.",
-    features: [
-      "Branded boxes & inserts",
-      "Gift wrapping options",
-      "Product kitting services",
-    ],
-    icon: <TbGift size={20} />,
-    mark: "bottom-right",
-  },
-  {
-    title: "UAE Compliance",
-    description:
-      "Complete product registration, customs clearance, and regulatory compliance. Navigate UAE market requirements effortlessly.",
-    features: [
-      "Product registration",
-      "Customs documentation",
-      "Ministry certifications",
-    ],
-    icon: <TbShieldCheck size={20} />,
-    mark: "top-right",
+    illustrationPlaceholder: "[COMPLIANCE_ILLUSTRATION]",
+    illustration: ComplianceIllustration,
   },
 ];
 
 const CheckIcon = () => (
-  <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g filter="url(#b)" clipPath="url(#a)">
-      <path
-        d="m7.2 11.394 5.333-5.333-1.066-1.067L7.2 9.261 5.067 7.127 4 8.194l3.2 3.2Z"
-        fill="#fff"
-      />
-    </g>
-    <defs>
-      <clipPath id="a">
-        <path fill="currentColor" d="M0 0h16v16H0z" />
-      </clipPath>
-      <filter
-        id="b"
-        x="-6.559"
-        y="-5.565"
-        width="29.652"
-        height="27.519"
-        filterUnits="userSpaceOnUse"
-        colorInterpolationFilters="sRGB"
-      >
-        <feFlood floodOpacity="0" result="BackgroundImageFix" />
-        <feColorMatrix
-          in="SourceAlpha"
-          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-          result="hardAlpha"
-        />
-        <feMorphology
-          radius="1.508"
-          operator="dilate"
-          in="SourceAlpha"
-          result="effect1_dropShadow_4017_133"
-        />
-        <feOffset />
-        <feGaussianBlur stdDeviation="4.525" />
-        <feComposite in2="hardAlpha" operator="out" />
-        <feColorMatrix values="0 0 0 0 0.968627 0 0 0 0 0.294118 0 0 0 0 0.270588 0 0 0 0.12 0" />
-        <feBlend
-          in2="BackgroundImageFix"
-          result="effect1_dropShadow_4017_133"
-        />
-        <feBlend
-          in="SourceGraphic"
-          in2="effect1_dropShadow_4017_133"
-          result="shape"
-        />
-      </filter>
-    </defs>
+  <svg
+    width="12"
+    height="12"
+    viewBox="0 0 12 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10 3L4.5 8.5L2 6"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-primary"
+    />
   </svg>
 );
 
-const CornerMark = ({
-  position,
-}: {
-  position: "top-right" | "bottom-right";
-}) => {
-  if (position === "top-right") {
-    return (
-      <div className="absolute -bottom-4 -left-4">
-        <svg
-          width="15"
-          height="15"
-          viewBox="0 0 15 15"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M14 14L14 6"
-            stroke="var(--color-primary)"
-            strokeWidth="1.2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M1 1L9 1"
-            stroke="var(--color-primary)"
-            strokeWidth="1.2"
-            strokeLinecap="round"
-          />
-          <rect
-            x="13"
-            width="2"
-            height="2"
-            rx="1"
-            fill="var(--color-primary)"
-          />
-        </svg>
-      </div>
-    );
-  }
-
-  return (
-    <div className="absolute -bottom-4 -right-4">
-      <svg
-        width="15"
-        height="15"
-        viewBox="0 0 15 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M1 14L0.999999 6"
-          stroke="var(--color-primary)"
-          strokeWidth="1.2"
-          strokeLinecap="round"
-        />
-        <path
-          d="M14 1L6 1"
-          stroke="var(--color-primary)"
-          strokeWidth="1.2"
-          strokeLinecap="round"
-        />
-        <rect
-          width="2"
-          height="2"
-          rx="1"
-          transform="matrix(-1 0 0 1 2 0)"
-          fill="var(--color-primary)"
-        />
-      </svg>
-    </div>
-  );
-};
-
 export default function Services({ className }: ServicesProps = {}) {
   return (
-    <section className="relative">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="w-full max-w-7xl mx-auto lg:px-4 rounded-3xl bg-background-subtle flex flex-col relative overflow-hidden"
-      >
-        <div className="w-full max-w-5xl mx-auto py-16 lg:py-28 px-6 border-l border-r border-dashed border-border">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16 w-full max-w-xl mx-auto flex flex-col gap-4"
-          >
-            <div className="border border-text rounded-full px-2 py-0.5 text-sm font-medium text-text inline-block w-fit mx-auto">
-              Our Services
-            </div>
-            <h3 className="text-4xl lg:text-5xl font-medium font-space-grotesk leading-tight tracking-tighter text-text">
-              End-to-End 3PL Solutions
-            </h3>
-            <div className="w-full max-w-md mx-auto">
-              <p className="text-lg leading-6 text-text mb-0">
-                From Dubai warehouse to customer doorstep. Tech-driven
-                fulfillment for e-commerce brands scaling in UAE & GCC.
-              </p>
-            </div>
-          </motion.div>
+    <section className="py-20 bg-white">
+      <div className="w-full max-w-7xl mx-auto px-4">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-3xl lg:text-5xl font-medium font-space-grotesk leading-tight tracking-tight text-black mb-4">
+            What We Do
+          </h2>
+          <p className="text-lg text-black/60 max-w-2xl mx-auto">
+            Three core services to scale your e-commerce business in UAE
+          </p>
+        </motion.div>
 
-          <div className="flex flex-col gap-14">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-8">
-              {services.map((service, index) => (
+        {/* Services - Alternating Layout */}
+        <div className="flex flex-col gap-24 lg:gap-32">
+          {services.map((service, index) => {
+            const isEven = index % 2 === 0;
+
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center"
+              >
+                {/* Illustration - Left on even, Right on odd */}
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  className="relative rounded-2xl bg-surface p-7 flex flex-col gap-6 shadow-lg"
+                  initial={{ opacity: 0, x: isEven ? -60 : 60 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7, delay: 0.4 }}
+                  className={`${isEven ? "lg:order-1" : "lg:order-2"}`}
                 >
-                  {/* {service.mark && <CornerMark position={service.mark as "top-right" | "bottom-right"} />} */}
-
-                  {/* Icon with negative margin */}
-                  <div className="bg-primary rounded-full text-white px-3 py-1.5 w-fit shadow-ebox-button -mt-11">
-                    {service.icon}
-                  </div>
-
-                  <div className="flex flex-col gap-2">
-                    <h3 className="text-lg font-medium text-text">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-text-secondary">
-                      {service.description}
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col gap-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <div
-                        key={featureIndex}
-                        className="flex items-center gap-2"
-                      >
-                        <div className="rounded-full bg-primary flex-none w-4 h-4 flex items-center justify-center text-primary">
-                          <CheckIcon />
-                        </div>
-                        <span className="text-sm leading-relaxed text-text">
-                          {feature}
-                        </span>
+                  <div
+                    className={`w-full h-80 lg:h-96 rounded-3xl flex items-center justify-center transition-colors overflow-hidden ${
+                      service.illustration || service.customIllustration
+                        ? ""
+                        : ""
+                    }`}
+                  >
+                    {service.customIllustration ? (
+                      <div className="w-full h-full">
+                        {service.customIllustration}
                       </div>
-                    ))}
+                    ) : service.illustration ? (
+                      <div className="relative w-full h-full p-8">
+                        <Image
+                          src={service.illustration}
+                          alt={service.title}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <span className="text-gray-400 font-mono text-sm px-4 py-2 bg-white rounded border">
+                        {service.illustrationPlaceholder}
+                      </span>
+                    )}
                   </div>
                 </motion.div>
-              ))}
-            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-center"
-            >
-              <Link
-                href="/contact"
-                className="text-xs font-medium leading-5 text-text hover:text-primary transition-colors group no-underline"
-              >
-                Get a Quote for Your Business
-                <span className="text-primary ml-1 group-hover:translate-x-1 transition-transform inline-block">
-                  →
-                </span>
-              </Link>
-            </motion.div>
-          </div>
+                {/* Content - Right on even, Left on odd */}
+                <motion.div
+                  initial={{ opacity: 0, x: isEven ? 60 : -60 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7, delay: 0.5 }}
+                  className={`flex flex-col ${isEven ? "lg:order-2" : "lg:order-1"}`}
+                >
+                  <h3 className="text-2xl lg:text-3xl font-medium font-space-grotesk text-black mb-3">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-base text-primary/80 font-medium mb-4">
+                    {service.subtitle}
+                  </p>
+
+                  <p className="text-black/70 leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+
+                  {/* Features List */}
+                  <ul className="flex flex-col gap-3">
+                    {service.features.map((feature, featureIndex) => (
+                      <motion.li
+                        key={featureIndex}
+                        initial={{ opacity: 0, x: isEven ? 20 : -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{
+                          duration: 0.5,
+                          delay: 0.6 + featureIndex * 0.1,
+                        }}
+                        className="flex items-start gap-3"
+                      >
+                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
+                          <CheckIcon />
+                        </div>
+                        <span className="text-black/70 text-sm leading-relaxed">
+                          {feature}
+                        </span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </motion.div>
+            );
+          })}
         </div>
-      </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mt-20"
+        >
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary-hover transition-colors group no-underline font-medium"
+          >
+            Learn More About Our Services
+            <span className="group-hover:translate-x-1 transition-transform">
+              &rarr;
+            </span>
+          </Link>
+        </motion.div>
+      </div>
     </section>
   );
 }

@@ -251,33 +251,6 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
           />
         </motion.div>
       </motion.div>
-
-      {/* Shipping Statistics */}
-      <div className="px-[4%]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-[22px] rounded-2xl bg-white w-full max-w-[988px] -mt-[76px] mx-auto py-6 sm:py-8 px-6 sm:px-10 relative shadow-ebox-card"
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 + (index * 0.1) }}
-              className="flex flex-col gap-2 text-neutral-900 text-center justify-between items-center"
-            >
-              <div className="text-3xl lg:text-4xl font-medium font-space-grotesk text-primary">
-                {stat.value}
-              </div>
-              <div className="text-lg font-medium leading-6 text-text">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
     </section>
   );
 }

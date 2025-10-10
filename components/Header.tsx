@@ -397,11 +397,6 @@ export default function Header() {
           </div>
         )}
       </header>
-
-      {/* Navigation line */}
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center items-center px-4">
-        <div className="bg-black/[0.08] w-full max-w-[1192px] h-px"></div>
-      </div>
     </>
   );
 }
