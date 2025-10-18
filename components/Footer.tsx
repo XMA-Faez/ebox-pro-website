@@ -134,7 +134,7 @@ export default function Footer() {
     >
       {/* CTA Block */}
       <div
-        className="z-[2] gap-10 rounded-3xl bg-primary text-white text-center flex flex-col justify-center items-center w-full max-w-[988px] -mb-[158px] mx-auto p-12 relative"
+        className="z-[2] gap-10 rounded-3xl bg-primary text-white text-center flex flex-col justify-center items-center w-full container-wide -mb-[158px] mx-auto p-12 relative"
         style={{
           backgroundImage:
             "url(https://cdn.prod.website-files.com/6684af61b1cc1eae182f04b5/6684af61b1cc1eae182f04d1_CTA%20BG.png)",
@@ -171,7 +171,7 @@ export default function Footer() {
       </div>
 
       {/* Footer Block */}
-      <div className="rounded-3xl bg-neutral-900 text-white flex flex-col justify-center w-full max-w-[1424px] mx-auto pt-[245px] pb-10 px-[4%] relative overflow-hidden">
+      <div className="rounded-3xl bg-neutral-900 text-white flex flex-col justify-center w-full max-w-[1524px] mx-auto pt-[245px] pb-10 px-[4%] relative overflow-hidden">
         <div className="relative z-10">
           {/* Footer Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-12">

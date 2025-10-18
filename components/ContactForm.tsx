@@ -60,13 +60,13 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
   ];
 
   return (
-    <section className="py-16 lg:py-28 relative overflow-hidden">
+    <section className="py-24 lg:py-32 relative overflow-hidden">
       {/* Shipping Block */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="rounded-3xl bg-neutral-900 text-white flex flex-col justify-center w-full max-w-[1424px] mx-auto py-28 px-[4%] relative overflow-hidden"
+        className="rounded-3xl bg-neutral-900 text-white flex flex-col justify-center w-full max-w-[1600px] mx-auto py-32 lg:py-40 px-6 lg:px-12 relative overflow-hidden"
       >
         <div className="container-small z-10">
           {/* Shipping Content */}
@@ -74,29 +74,29 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col gap-12 max-w-[510px]"
+            className="flex flex-col gap-16 max-w-[600px]"
           >
-            <div className="flex flex-col gap-6">
-              <div className="rounded-full bg-neutral-900 border border-white/20 px-2 py-0.5 text-sm font-medium text-white inline-block w-fit">
+            <div className="flex flex-col gap-8">
+              <div className="rounded-full bg-neutral-900 border border-white/20 px-3 py-1 text-base font-medium text-white inline-block w-fit">
                 Our Services
               </div>
-              <h3 className="text-3xl lg:text-4xl font-medium font-space-grotesk leading-tight tracking-tighter text-white">
+              <h3 className="text-4xl lg:text-5xl xl:text-6xl font-medium font-space-grotesk leading-tight tracking-tighter text-white">
                 Get A Shipping <span className="whitespace-nowrap">Quote To</span> Get Started!
               </h3>
-              <p className="text-lg leading-6 text-neutral-300">
+              <p className="text-xl lg:text-2xl leading-relaxed text-neutral-300">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor sapien vel facilisis lobortis.
               </p>
             </div>
 
             {/* Shipping Form */}
-            <div className="max-w-[440px]">
+            <div className="max-w-[550px]">
               <div className="mb-0">
                 {!isSubmitted && !hasError && (
                   <form onSubmit={handleSubmit} className="flex flex-col">
                     {/* Form Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-0">
-                      <div className="mb-6">
-                        <label htmlFor="firstName" className="block text-sm font-medium text-white mb-1 pl-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-0">
+                      <div className="mb-8">
+                        <label htmlFor="firstName" className="block text-base lg:text-lg font-medium text-white mb-2 pl-5">
                           Name
                         </label>
                         <input
@@ -106,12 +106,12 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
                           placeholder="John"
                           value={formData.firstName}
                           onChange={handleChange}
-                          className="w-full border border-white/[0.08] bg-white/[0.04] text-white mb-0 py-2 px-3 pl-4 text-sm leading-6 rounded-lg focus:border-primary focus:outline-none placeholder:text-neutral-400"
+                          className="w-full border border-white/[0.08] bg-white/[0.04] text-white mb-0 py-3 px-4 pl-5 text-base lg:text-lg leading-6 rounded-lg focus:border-primary focus:outline-none placeholder:text-neutral-400"
                           required
                         />
                       </div>
-                      <div className="mb-6">
-                        <label htmlFor="lastName" className="block text-sm font-medium text-white mb-1 pl-4">
+                      <div className="mb-8">
+                        <label htmlFor="lastName" className="block text-base lg:text-lg font-medium text-white mb-2 pl-5">
                           Last Name
                         </label>
                         <input
@@ -121,12 +121,12 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
                           placeholder="Smith"
                           value={formData.lastName}
                           onChange={handleChange}
-                          className="w-full border border-white/[0.08] bg-white/[0.04] text-white mb-0 py-2 px-3 pl-4 text-sm leading-6 rounded-lg focus:border-primary focus:outline-none placeholder:text-neutral-400"
+                          className="w-full border border-white/[0.08] bg-white/[0.04] text-white mb-0 py-3 px-4 pl-5 text-base lg:text-lg leading-6 rounded-lg focus:border-primary focus:outline-none placeholder:text-neutral-400"
                           required
                         />
                       </div>
-                      <div className="mb-6">
-                        <label htmlFor="email" className="block text-sm font-medium text-white mb-1 pl-4">
+                      <div className="mb-8">
+                        <label htmlFor="email" className="block text-base lg:text-lg font-medium text-white mb-2 pl-5">
                           Email
                         </label>
                         <input
@@ -136,12 +136,12 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
                           placeholder="example@gmail.com"
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full border border-white/[0.08] bg-white/[0.04] text-white mb-0 py-2 px-3 pl-4 text-sm leading-6 rounded-lg focus:border-primary focus:outline-none placeholder:text-neutral-400"
+                          className="w-full border border-white/[0.08] bg-white/[0.04] text-white mb-0 py-3 px-4 pl-5 text-base lg:text-lg leading-6 rounded-lg focus:border-primary focus:outline-none placeholder:text-neutral-400"
                           required
                         />
                       </div>
-                      <div className="mb-6">
-                        <label htmlFor="phone" className="block text-sm font-medium text-white mb-1 pl-4">
+                      <div className="mb-8">
+                        <label htmlFor="phone" className="block text-base lg:text-lg font-medium text-white mb-2 pl-5">
                           Phone Number
                         </label>
                         <input
@@ -151,24 +151,24 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
                           placeholder="+24 31 674 558"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full border border-white/[0.08] bg-white/[0.04] text-white mb-0 py-2 px-3 pl-4 text-sm leading-6 rounded-lg focus:border-primary focus:outline-none placeholder:text-neutral-400"
+                          className="w-full border border-white/[0.08] bg-white/[0.04] text-white mb-0 py-3 px-4 pl-5 text-base lg:text-lg leading-6 rounded-lg focus:border-primary focus:outline-none placeholder:text-neutral-400"
                           required
                         />
                       </div>
                     </div>
 
                     {/* Select Dropdown */}
-                    <div className="mb-6">
-                      <label htmlFor="interested" className="block text-sm font-medium text-white mb-1 pl-4">
+                    <div className="mb-8">
+                      <label htmlFor="interested" className="block text-base lg:text-lg font-medium text-white mb-2 pl-5">
                         Interested in:
                       </label>
-                      <div className="border border-white/[0.08] bg-white/[0.04] rounded-lg pr-3 text-sm leading-6">
+                      <div className="border border-white/[0.08] bg-white/[0.04] rounded-lg pr-4 text-base lg:text-lg leading-6">
                         <select
                           id="interested"
                           name="interested"
                           value={formData.interested}
                           onChange={handleChange}
-                          className="w-full bg-transparent text-neutral-400 border border-black mb-0 py-2 px-3 pl-4 focus:outline-none"
+                          className="w-full bg-transparent text-neutral-400 border border-black mb-0 py-3 px-4 pl-5 focus:outline-none"
                           required
                         >
                           <option value="" className="bg-neutral-900">Select one...</option>
@@ -182,7 +182,7 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
                     <input
                       type="submit"
                       value="Submit"
-                      className="bg-primary text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-primary-hover transition-colors cursor-pointer"
+                      className="bg-primary text-white px-8 py-4 rounded-full text-base lg:text-lg font-medium hover:bg-primary-hover transition-colors cursor-pointer"
                     />
                   </form>
                 )}
